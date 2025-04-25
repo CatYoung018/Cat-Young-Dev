@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Cat Young | Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
   <meta name="description" content="">
 
@@ -22,11 +22,177 @@
 </head>
 
 <body>
+  <!--Scroll to Top Button -->
+  <button onclick="topFunction()" id="scroll-button" title="Scroll to Top" style="display: block;">
+    <i class="fa-solid fa-angles-up fa-2x" aria-hidden="true">
+      ::before
+    </i>
+  </button>
+  <header>
+    <div class="content-wrapper">
+      <nav>
+        <ul>
+          <li>
+            <a href="work">projects</a>
+          </li>
+          <li>
+            <a href="#skills">skills</a>
+          </li>
+          <li>
+            <a href="#about">about</a>
+          </li>
+          <li>
+            <a href="contact" id="contact-link">contact me</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="home-title">
+        <h1> Hi there, I'm Cat Young!</h1>
+        <h2>I'm a front end web developer focused on creating engaging and accessible websites. </h2>
+      </div>
+    </div>
+  </header>
+  <main>
+    <article class="portfolio">
+      <section id="work">
+        <div class="content-wrapper">
+          <h3 class="portfolio-header">Projects</h3>
+          <div class="portfolio-wrapper">
+            <div class="home-portfolio-piece">
+              <figure>
+                <a href="https://2kkfds-3000.csb.app/" target="_blank">
+                  <img src="img/Sticky-site .png" alt="Sticky Note Project">
+                </a>
+              </figure>
+              <h4>Super Sticky Notes</h4>
+              <p class="project-description">
+                "An interactive React app that lets users create sticky notes plus edit, delete, and search their to-do list items."
+              </p>
+              <p>
+                <span>Skills: </span>
+                "ES6, JSX, DOM Manipulation, Managing Data Flow"
+              </p>
+              <p class="flex-fill">
+                <span>Tools: </span>
+                "CodeSandbox"
+              </p>
+              <a class="project-link" href="https://2kkfds-3000.csb.app/" target="_blank">live page</a>
+            </div>
+            <div class="home-portfolio-piece">
+              <figure>
+                <a href="https://catyoung018.github.io/guess-the-word/" target="_blank">
+                  <img src="img/Guess-site .png" alt="Guess the Word Game">
+                </a>
+              </figure>
+              <h4>Guess the Word Game</h4>
+              <p class="project-description">
+                "An interactive JavaScript game where players guess one letter at a time. Guess all the letters correctly in eight attempts and you win!"
+              </p>
+              <p>
+                <span>Skills: </span>
+                "Vanilla JavaScript, DOM Manipulation, Responsive Design, Loops"
+              </p>
+              <p class="flex-fill">
+                <span>Tools: </span>
+                "GitHub, JSON"
+              </p>
+              <a class="project-link" href="https://catyoung018.github.io/guess-the-word/" target="_blank">live page
+              </a>
+            </div>
+            <div class="home-portfolio-piece">
+              <figure>
+                <a href="https://catyoung018.github.io/unplugged-2/" target="_blank">
+                  <img src="img/Unplugged-site.png" alt="Unplugged Site">
+                </a>
+              </figure>
+              <h4>Unplugged Retreat</h4>
+              <p class="project-description">
+                "Multi-page responsive website from a design comp utilizing Flexbox and Media Queries."
+              </p>
+              <p>
+                <span>Skills: </span>
+                "CSS3, Reflexive Typography, HTML5, Media Queries, Flexbox"
+              </p>
+              <p class="flex-fill">
+                <span>Tools: </span>
+                "Chrome DevTools, GitHub, Text Editors"
+              </p>
+              <a class="project-link" href="https://catyoung018.github.io/unplugged-2/" target="_blank">live page
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="skills">
+        <div class="content-wrapper">
+          <h3 class="skills-header">Skills</h3>
+          <h4>Developer Skills</h4>
+          <div class="language-wrapper">
+            <p class="skill">HTML and CSS</p>
+            <p class="skill">JavaScript</p>
+            <p class="skill">React</p>
+            <p class="skill">ES6</p>
+            <p class="skill">Git and GitHub</p>
+            <p class="skill">CodeSandbox</p>
+            <p class="skill">Visual Studio Code</p>
+            <p class="skill">CodeSandbox</p>
+            <p class="skill">Responsive Design</p>
+        </div>
+      </section>
+    </article>
+    <section id="about">
+      <div class="content-wrapper">
+        <div class="about-content-wrapper">
+          <figure>
+            <img src="img/Catpeach.jpeg" alt id="profile-image">
+          </figure>
+          <div class="about-info">
+            <h3>A little about me</h3>
+            <h4>"Coding bridges my love for learning spoken languages with computer languages, driving my passion to build accessible websites.
+            </h4>
+            <p class="about-text">
+              "I have learned the value of making complex ideas easy to understand, and that's what keeps me interested in coding. The prospect of collaborating with a team and expanding my skills within a supportive organization is particularly exciting.
+              When I'm not coding, I am busy planning my next trip because I love seeking out destinations I haven't been to before and meeting people with different lived experiences.""
+              "
+            </p>
+            <p>
+              <span>Can't wait to work with you!</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="contact">
+    <div class="content-wrapper">
+      <h3>Let's Connect</h3>
+      <div class="contact-info">
+        <a href="www.linkedin.com/in/catrillia-young18" target="_blank" title="LinkedIn">
+          <i class="fa-brands fa-linkedin fa-5x" aria-hidden="true">
+            ::before
+          </i>
+        </a>
+        <a href="https://github.com/CatYoung018" target="_blank" title="GitHub">
+          <i class="fa-brands fa-github fa-5x" aria-hidden="true">
+            ::before
+          </i>
+        </a>
+      </div>
+      <div class="contact-form">
+        <h4 class="contact-me">Contact Cat</h4>
+        <div id="contact-form">
+          <form action="https://formspree.io/f/xbjwozkz" method="POST">
+            <input type="text" name="name" aria-label="write your full name" id="full-name" placeholder="First & Last Name" required>
+            <input type="text" name="replyto" aria-label="your email address" id="email-address" placeholder="your_email.com" required>
+            <textarea name="message" aria-label="your message" id="message" placeholder="Message" required></textarea>
+            <button class="btn" type="submit">SEND</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">Copyright 2025 | Cat Young</p>
+  </footer>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
   <script src="js/app.js"></script>
-
 </body>
-
 </html>
