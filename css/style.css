@@ -149,7 +149,7 @@ h5 {
   .tool-wrapper p {
     width: auto; /* Size based on content */
     margin-right: 10px; /* Add right margin for spacing */
-    margin-left: 10; /* Reset left margin */
+    margin-left: 0; /* Reset left margin */
   }
 }
 
@@ -404,7 +404,7 @@ header {
 }
 
 header nav ul li {
-  font-size: .80 rem;
+  font-size: .80rem;
   margin-bottom: 20px;
   font-weight: bold;
   text-transform: uppercase;
