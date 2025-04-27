@@ -11,78 +11,644 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
-}
+   html {
+    color: #222;
+    font-size: 1.25em;
+    line-height: 1.4;
+  }
+  
+  ::-moz-selection {
+    background: var(--selection-background);
+    text-shadow: none;
+  }
+  
+  ::selection {
+    background: var(--selection-background);
+    text-shadow: none;
+  }
+  
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid var(--hr-border-color);
+    margin: 1em 0;
+    padding: 0;
+  }
+  
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    vertical-align: middle;
+  }
+  
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+/* General Styles */
+:root {
+  --primary-text-color: #453E4F;
+  --primary-background-color: white;
+  --accent-color-1: #F19494;
+  --accent-color-2: #FFE8D6;
+  --selection-background: #b3d4fc;
+  --hr-border-color: #ccc;
+  --button-hover-background: #CAC4D1;
+  --button-hover-text-color: var(--primary-text-color);
+  --white: #FFFFFF;
+  --about-text-color: #4a4f3e;
+  --back-to-top-background: #e8eff7;
+  --back-to-top-text-color: var(--primary-text-color);
+  --primary-font: 'Open Sans', sans-serif;
+  --secondary-font: 'Alike', serif;
+}
+
+body {
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  color: #453E4F;
+  background-color: white;
+  /* Sometimes the default background for a browser isn't exactly white. Adding a default allows more consistency between browsers. */
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #453E4F;
+  text-decoration: none;
+}
+
+h1 {
+  color: #453E4F;
+  font-family: 'Alike', serif;
+  font-size: 3rem;
+  line-height: 1;
+  width: 100%
+}
+
+h2 {
+  color: #453E4F;
+  font-family: 'Alike', serif;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  width: 100%;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+.project-link,
+.language-wrapper p,
+.tool-wrapper p {
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  color: #453E4F;
+}
+
+.tool-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for more than two items */
+  justify-content: flex-start; /* Align items to the left on larger screens */
+}
+
+/* Media query for larger screens (e.g., min-width: 769px - typical tablet breakpoint) */
+@media (min-width: 769px) {
+  .language-wrapper {
+    justify-content: flex-start; /* Align to the left */
+  }
+
+  .language-wrapper p,
+  .tool-wrapper p {
+    width: auto; /* Size based on content */
+    margin-right: 10px; /* Add right margin for spacing */
+    margin-left: 10; /* Reset left margin */
+  }
+}
+
+/* Media query for smaller screens (tablets and below) */
+@media (max-width: 768px) {
+  .language-wrapper {
+    justify-content: space-between; /* Keep two columns on smaller screens */
+  }
+
+  .language-wrapper p,
+  .tool-wrapper p {
+    width: calc(50% - 10px); /* Maintain two columns */
+    margin: 10px 0; /* Adjust margin for column layout */
+  }
+
+  .tool-wrapper {
+    justify-content: space-between; /* Keep two columns on smaller screens */
+  }
+}
+
+#about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#about .content-wrapper {
+  width: 85%;
+}
+
+#about .about-content-wrapper {
+  display: flex; /* Enable flexbox for the container of image and text */
+  flex-direction: row; /* Arrange items in a row */
+  align-items: center; /* Vertically align image and text */
+}
+
+#about figure {
+  flex-basis: 60%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 60%;
+  margin-right: 30px;
+  margin-bottom: 0;
+}
+
+#profile-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.about-info {
+  flex-basis: 40%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-width: 40%;
+}
+
+.about-info h3 {
+  margin-top: 0;
+}
+
+.about-info h4,
+.contact-title {
+  font-weight: 400;
+}
+
+.about-info h3 {
+  margin: 40px 0 40px 0;
+}
+
+.about-text {
+  margin: 0 0 30px 0;
+}
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Alike', serif;
+  line-height: 1.5;
+  width: 100%
+}
+
+p,
+li {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+span {
+  font-weight: bold;
+}
+
+img {
+  width: 100%;
+}
+
+figure img {
+  max-width: 100%; /* Set the maximum width to 60% of the <figure> container */
+  height: auto; /* Maintain the image's aspect ratio */
+}
+address {
+  font-style: normal;
+}
+
+/* Structural Styles */
+header,
+#work,
+#skills,
+#about,
+footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-flow: row wrap;
+}
+
+.content-wrapper {
+  width: 85%;
+}
+
+#work p,
+#about p {
+  width: 100%;
+  text-align: left;
+}
+
+/* set the margins & paddings for each section - these are only a suggestion :) */
+/* setting all margins to zero removes all browser added default margins */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* then can set the margin & paddings for any element */
+header {
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+
+nav {
+  margin-bottom: 60px;
+}
+
+#work {
+  padding-top: 60px;
+}
+
+#skills {
+  padding-bottom: 80px;
+}
+
+#about {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+footer {
+  padding: 80px 0;
+}
+
+h2 {
+  margin-top: 60px;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+h4 {
+  margin: 0 0 40px 0;
+}
+
+.project-description {
+  margin: 0 0 30px 0;
+}
+
+.project-link {
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 0.85em;
+}
+
+@media (max-width: 600px) { /* Adjust the breakpoint as needed */
+  .project-link {
+    font-size: 0.9em; /* Reduce the font size */
+  }
+}
+#skills {
+  padding-top: 80px;
+}
+
+figure {
+  margin: 20px 0 40px 0;
+}
+
+.skills-header {
+  margin-bottom: 20px;
+}
+
+.about-info h3 {
+  margin: 40px 0 40px 0;
+}
+
+.about-text {
+  margin: 0 0 30px 0;
+}
+
+#contact h3 {
+  margin-bottom: 60px;
+}
+
+.contact-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-info {
+  margin: 0 0 60px 0;
+  text-align: center;
+}
+
+.contact-title {
+  margin: 0 0 40px 0;
+  text-align: center;
+}
+
+.contact-info p {
+  margin: 0; /* Remove default paragraph margins if needed */
+}
+
+.copyright {
+  margin-top: 60px;
+}
+/* -------------------- Base Header Styles -------------------- */
+
+header {
+  background-color: #f19494;
+}
+
+header nav ul li {
+  font-size: .80 rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+nav #contact-link {
+  background-color: #FFE8D6;
+  padding: 10px 10px;
+  border-radius: 30px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+header nav ul li a {
+  font-weight: bold; /* Keeping the bold style */
+  text-transform: uppercase; /* Keeping the uppercase style */
+  color: #333; /* Default text color */
+  text-decoration: none; /* Remove underlines from links */
+  padding: 10px 15px; /* Add some padding for the background to be visible */
+  border-radius: 30px; /* Optional: Add rounded corners like the contact button */
+  background-color: transparent; /* Default background color is transparent */
+  transition: background-color 0.3s ease; /* Optional: Add a smooth transition effect */
+}
+
+header nav ul li a:hover {
+  background-color: #f8c6c6; /* Example hover background color - a light blue */
+  color: #333; /* Optional: Keep the text color the same or change it */
+}
+
+nav #contact-link a {
+  background-color: #F19494;
+  padding: 10px 10px;
+  border-radius: 30px;
+  color: white; /* Default text color for the contact link */
+}
+
+nav #contact-link a:hover {
+  background-color: #e6a8a8; /* Example hover background color for the contact link */
+  color: white; /* Keep the text color white on hover */
+}
+
+header h1 {
+  width: 100%;
+}
+
+header h2 {
+  width: 100%
+}
+#back-to-top-btn {
+  display: none; /* Initially hidden */
+  position: fixed; /* Stay in the viewport during scrolling */
+  bottom: 20px; /* Position from the bottom */
+  right: 20px; /* Position from the right */
+  z-index: 99; /* Ensure it's on top of other elements */
+  border: none;
+  outline: none;
+  background-color: #e8eff7; /* Your yellow color */
+  color: #453E4F;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 30px;
+  font-size: 0.9em;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#back-to-top-btn:hover {
+  opacity: 1;
+}
+
+#back-to-top-btn svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* -------------------- Mobile Styles - Homepage -------------------- */
+
+/* Portfolio */
+#work,
+#skills {
+  width: 100%;
+}
+
+#work h3 {
+  width: 100%;
+}
+.portfolio-wrapper {
+  display: flex; /* Enable flexbox for the container */
+  flex-direction: row; /* Ensure items are arranged in a row */
+  justify-content: space-between; /* Distribute space between the first two */
+}
+
+.home-portfolio-piece {
+  width: calc(33.33% - 20px); /* Make each project take up roughly one-third of the width with some spacing */
+  margin-bottom: 40px; /* Keep the vertical spacing for now */
+  min-height: 400px; /* Adjust this value as needed */
+  display: flex; /* Add flexbox to control vertical alignment of content */
+  flex-direction: column; /* Stack the content vertically */
+  align-items: flex-start; /* Align items to the start of the cross-axis (left) */
+}
+
+/* Media query for smaller screens (tablets and below) */
+@media (max-width: 768px) {
+  .portfolio-wrapper {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .home-portfolio-piece {
+    width: 100%; /* Make each project piece take full width */
+    margin-right: 0; /* Remove any right margin */
+  }
+}
+
+.home-portfolio-piece h4 {
+  font-weight: bold;
+  text-align: center; /* Center the project title */
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.home-portfolio-piece > figure {
+  width: 80%; /* Adjust the width of the image container if needed */
+  margin-bottom: 1em; /* Add some space below the image */
+}
+
+.flex-fill {
+  flex-grow: 1;
+}
+.home-portfolio-piece > .project-description,
+.home-portfolio-piece > p {
+  text-align: center; /* Center the text content */
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.button-container {
+  width: fit-content;
+  margin-top: 1em;
+}
+
+.project-link {
+  background-color: #453E4F;
+  padding: .75rem 3rem;
+  border-radius: 30px;
+  color: #FFFFFF;
+  display: block;
+  text-align: center;
+}
+
+.project-link:hover {
+  background-color: #CAC4D1;
+  color: #453E4F;
+}
+
+#skills {
+  background-color: #F19494;
+}
+
+#skills h4 {
+  margin: 40px 0 40px 0;
+  font-weight: bold;
+}
+
+.language-wrapper {
+  display: flex; /* Make it a flex container */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: space-between; /* Distribute space between items */
+}
+
+.language-wrapper p,
+.tool-wrapper p {
+  background-color: #FFE8D6;
+  padding: 10px 0;
+  margin: 5px 0; /* Adjust margin for better spacing in columns */
+  width: calc(50% - 10px); /* Set the width to roughly half, with some spacing */
+  text-align: center; /* Center the text within each skill block */
+}
+
+.tool {
+  width: 100%;
+}
+
+.tool-wrapper {
+  display: flex; /* Make it a flex container */
+  justify-content: space-between; /* Distribute space between the two items */
+}
+
+/* About */
+#about {
+  width: 100%;
+}
+
+#profile-image {
+  width: 90%;
+}
+
+#about h3,
+#about h4,
+#about p {
+  color: #4a4f3e;
+}
+
+/* -------------------- Base Header Styles -------------------- */
+footer {
+  background-color: #f19494;
+}
+
+footer .contact-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+footer .contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+
+footer span {
+  color: var(--light-blue);
+  padding: 3px;
+}
+
+#connect i {
+  color: var(--light-blue);
+}
+#connect a i:hover {
+  color: var(--highlight);
+}
+
+.copyright {
+  color: var(--light-blue);
+}
 
 /* ==========================================================================
    Helper classes
