@@ -222,12 +222,13 @@ h5 {
 }
 
 .about-info h3 {
-  margin: 40px 0 40px 0;
+  margin: 30px 0 30px 0;
 }
 
 .about-text {
-  margin: 0 0 30px 0;
+  margin: 0 0 30px 0; /* Original paragraph margin */
 }
+
 h3,
 h4,
 h5,
@@ -255,8 +256,65 @@ figure img {
   max-width: 100%; /* Set the maximum width to 60% of the <figure> container */
   height: auto; /* Maintain the image's aspect ratio */
 }
+
 address {
   font-style: normal;
+}
+
+/* Media query for screens smaller than 768px (typical for tablets) */
+@media (max-width: 768px) {
+  #about .about-content-wrapper {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: stretch; /* Make items take full width */
+  }
+
+  #about figure {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px; /* Add some space below the image */
+  }
+
+  .about-info {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .about-info h3 {
+    margin-top: 20px; /* Adjust top margin for the heading */
+  }
+
+  .about-text {
+    margin-bottom: 20px; /* Adjust bottom margin for paragraph on tablets */
+  }
+
+  #about .content-wrapper {
+    padding-left: 20px; /* Add left padding for tablet screens */
+    padding-right: 20px; /* Add right padding for tablet screens */
+    width: auto; /* Allow width to adjust with padding */
+  }
+}
+
+/* Media query for screens smaller than 576px (typical for mobile phones) */
+@media (max-width: 576px) {
+  #about .content-wrapper {
+    width: 95%; /* Adjust overall width for smaller screens */
+    padding-left: 15px; /* Add left padding for mobile screens */
+    padding-right: 15px; /* Add right padding for mobile screens */
+  }
+
+  .about-info h3 {
+    font-size: 1.5rem; /* Slightly reduce heading size for very small screens */
+  }
+
+  p,
+  li {
+    font-size: 0.9rem; /* Slightly reduce paragraph and list item size */
+  }
+
+  .about-text {
+    margin-bottom: 15px; /* Adjust bottom margin for paragraph on mobile */
+  }
 }
 
 /* Structural Styles */
@@ -401,13 +459,31 @@ figure {
 
 header {
   background-color: #f19494;
+  position: relative; /* Needed for absolute positioning of the mobile button */
 }
 
 header nav ul li {
   font-size: .80rem;
-  margin-bottom: 20px;
   font-weight: bold;
   text-transform: uppercase;
+  /* Remove margin-bottom for horizontal layout */
+}
+
+header nav ul li a {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 30px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  display: block; /* Make the entire link area clickable */
+}
+
+header nav ul li a:hover {
+  background-color: #f8c6c6;
+  color: #333;
 }
 
 nav #contact-link {
@@ -416,54 +492,40 @@ nav #contact-link {
   border-radius: 30px;
 }
 
-nav ul {
-  display: flex;
-  justify-content: space-evenly;
-}
-header nav ul li a {
-  font-weight: bold; /* Keeping the bold style */
-  text-transform: uppercase; /* Keeping the uppercase style */
-  color: #333; /* Default text color */
-  text-decoration: none; /* Remove underlines from links */
-  padding: 10px 15px; /* Add some padding for the background to be visible */
-  border-radius: 30px; /* Optional: Add rounded corners like the contact button */
-  background-color: transparent; /* Default background color is transparent */
-  transition: background-color 0.3s ease; /* Optional: Add a smooth transition effect */
-}
-
-header nav ul li a:hover {
-  background-color: #f8c6c6; /* Example hover background color - a light blue */
-  color: #333; /* Optional: Keep the text color the same or change it */
-}
-
 nav #contact-link a {
   background-color: #F19494;
   padding: 10px 10px;
   border-radius: 30px;
-  color: white; /* Default text color for the contact link */
+  color: white;
 }
 
 nav #contact-link a:hover {
-  background-color: #e6a8a8; /* Example hover background color for the contact link */
-  color: white; /* Keep the text color white on hover */
+  background-color: #e6a8a8;
+  color: white;
 }
 
 header h1 {
   width: 100%;
+  text-align: center; /* Center the title on smaller screens */
+  margin-top: 15px; /* Add some top margin */
+  margin-bottom: 15px; /* Add some bottom margin */
 }
 
 header h2 {
-  width: 100%
+  width: 100%;
+  text-align: center; /* Center the subtitle on smaller screens */
+  margin-bottom: 20px; /* Add some bottom margin */
 }
+
 #back-to-top-btn {
-  display: none; /* Initially hidden */
-  position: fixed; /* Stay in the viewport during scrolling */
-  bottom: 20px; /* Position from the bottom */
-  right: 20px; /* Position from the right */
-  z-index: 99; /* Ensure it's on top of other elements */
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
   border: none;
   outline: none;
-  background-color: #e8eff7; /* Your yellow color */
+  background-color: #e8eff7;
   color: #453E4F;
   cursor: pointer;
   padding: 10px 15px;
@@ -484,6 +546,195 @@ header h2 {
   margin-right: 5px;
 }
 
+/* Mobile Menu Styles (Initially Hidden) */
+.mobile-menu-button {
+  display: none; /* Hidden by default on larger screens */
+  position: absolute;
+  top: 10px; /* Adjust vertical position as needed */
+  right: 15px; /* Adjust horizontal position as needed */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.mobile-menu-button span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333; /* Color of the hamburger lines */
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.nav-links-mobile {
+  display: none; /* Hidden by default on larger screens */
+  flex-direction: column; /* Stack links vertically */
+  background-color: #f19494; /* Match header background */
+  position: absolute;
+  top: 100%; /* Position below the header */
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Ensure it's above other content */
+  padding: 15px;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.nav-links-mobile li {
+  margin-bottom: 15px; /* Add spacing between stacked links */
+  text-align: center; /* Center the links */
+}
+
+.nav-links-mobile li:last-child {
+  margin-bottom: 0; /* Remove bottom margin from the last item */
+}
+
+.nav-links-mobile li a {
+  display: block; /* Make the whole area clickable */
+  padding: 10px;
+  border-radius: 30px; /* Keep the rounded corners */
+  background-color: #f8c6c6; /* Give a background to each link */
+  color: #333;
+}
+
+.nav-links-mobile li a:hover {
+  background-color: #e6a8a8; /* Darker hover color */
+}
+
+.nav-links-mobile.open {
+  display: flex; /* Show the mobile navigation */
+}
+
+.mobile-menu-button.open span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-button.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-button.open span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Media Query for Smaller Screens (e.g., 768px and below) */
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* Hide the default horizontal navigation */
+  }
+
+  .mobile-menu-button {
+    display: block; /* Show the mobile menu button */
+  }
+
+  .nav-links-mobile {
+    display: none; /* Hidden by default on larger screens */
+    flex-direction: column;
+    /* ... other styles ... */
+  }
+
+  header h1 {
+    font-size: 1.5rem; /* Adjust title size */
+  }
+
+  header h2 {
+    font-size: 1rem; /* Adjust subtitle size */
+  }
+}
+/* Initially hide the mobile menu items on larger screens */
+.mobile-menu-items {
+  display: none;
+}
+
+/* Show the desktop menu on larger screens */
+.desktop-menu {
+  display: flex; /* To maintain the horizontal layout */
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.desktop-menu li {
+  font-size: .80rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* Remove margin-bottom for horizontal layout */
+}
+
+.desktop-menu li a {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 30px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  display: block; /* Make the entire link area clickable */
+}
+
+.desktop-menu li a:hover {
+  background-color: #f8c6c6;
+  color: #333;
+}
+
+/* Media Query for Smaller Screens (e.g., 768px and below) */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none; /* Hide the desktop navigation on smaller screens */
+  }
+
+  .mobile-menu-items {
+    display: none; /* Initially hidden, will be shown when the mobile button is clicked (via JavaScript) */
+    flex-direction: column;
+    background-color: #f19494;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .mobile-menu-items.open {
+    display: flex; /* Show the mobile navigation when the 'open' class is added */
+  }
+
+  .mobile-menu-items li {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .mobile-menu-items li:last-child {
+    margin-bottom: 0;
+  }
+
+  .mobile-menu-items li a {
+    display: block;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #f8c6c6;
+    color: #333;
+  }
+
+  .mobile-menu-items li a:hover {
+    background-color: #e6a8a8;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header h2 {
+    font-size: 1rem;
+  }
+}
 /* -------------------- Mobile Styles - Homepage -------------------- */
 
 /* Portfolio */
@@ -612,7 +863,7 @@ header h2 {
   color: #4a4f3e;
 }
 
-/* -------------------- Base Header Styles -------------------- */
+/* -------------------- Base Footer Styles -------------------- */
 footer {
   background-color: #f19494;
 }
@@ -736,7 +987,13 @@ footer span {
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }
-
+/* Media query for screens smaller than 768px (typical for tablets) */
+@media (max-width: 768px) {
+  #about .about-content-wrapper {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: stretch; /* Make items take full width */
+  }
+}
 @media print,
   (-webkit-min-device-pixel-ratio: 1.25),
   (min-resolution: 1.25dppx),

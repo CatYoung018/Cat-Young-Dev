@@ -46,11 +46,22 @@
   <header>
     <div class="content-wrapper">
       <nav>
-        <ul>
+        <button class="mobile-menu-button">
+          <span class="line top"></span>
+          <span class="line middle"></span>
+          <span class="line bottom"></span>
+        </button>
+        <ul class="mobile-menu-items">
           <li><a href="#work">projects</a></li>
           <li><a href="#skills">skills</a></li>
           <li><a href="#about">about</a></li>
-          <li><a href="#contact" id="contact-link">contact me</a></li>
+          <li><a href="#connect" id="contact-link">contact me</a></li>
+        </ul>
+        <ul class="desktop-menu">
+          <li><a href="#work">projects</a></li>
+          <li><a href="#skills">skills</a></li>
+          <li><a href="#about">about</a></li>
+          <li><a href="#connect" id="contact-link">contact me</a></li>
         </ul>
       </nav>
       <div class="home-title">
@@ -180,6 +191,24 @@
     </svg>
     <span>Back to Top</span>
   </button>
+
+  <script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenuItems = document.querySelector('.mobile-menu-items');
+  
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenuButton.classList.toggle('open');
+      mobileMenuItems.classList.toggle('open');
+    });
+  
+    const mobileLinks = document.querySelectorAll('.mobile-menu-items a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuButton.classList.remove('open');
+        mobileMenuItems.classList.remove('open');
+      });
+    });
+  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
