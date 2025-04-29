@@ -294,6 +294,12 @@ address {
     width: auto; /* Allow width to adjust with padding */
   }
 }
+@media (max-width: 768px) {
+  #about .about-info {
+    padding-left: 20px; /* Adjust this value for more or less left padding */
+    padding-right: 20px; /* Adjust this value for more or less right padding */
+  }
+}
 
 /* Media query for screens smaller than 576px (typical for mobile phones) */
 @media (max-width: 576px) {
@@ -336,9 +342,12 @@ footer {
 #work p,
 #about p {
   width: 100%;
-  text-align: left;
+  text-align: justify;
 }
 
+#about .about-info p:last-child {
+  text-align: center;
+}
 /* set the margins & paddings for each section - these are only a suggestion :) */
 /* setting all margins to zero removes all browser added default margins */
 h1,
@@ -544,6 +553,11 @@ header h2 {
   height: 1em;
   vertical-align: middle;
   margin-right: 5px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+      scroll-behavior: smooth;  
+  }
 }
 
 /* Mobile Menu Styles (Initially Hidden) */
@@ -815,6 +829,53 @@ header h2 {
   color: #453E4F;
 }
 
+/* Style for the "Projects" title */
+#work .content-wrapper h3.portfolio-header {
+  text-align: center;
+  margin-bottom: 40px; /* Add some space below the title */
+}
+
+/* Styles for centering content within each project */
+.home-portfolio-piece {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text within the container as a fallback */
+}
+
+.home-portfolio-piece > figure {
+  display: flex; /* Enable flexbox for the figure */
+  justify-content: center; /* Center the image horizontally */
+  width: 80%; /* Maintain a reasonable width for the image container */
+  margin-left: auto; /* These two properties together */
+  margin-right: auto; /* will also center the figure block */
+  margin-bottom: 1em;
+}
+
+.home-portfolio-piece > .project-description,
+.home-portfolio-piece > p {
+  text-align: center; /* Ensure description and skills/tools are centered */
+}
+
+.home-portfolio-piece > .button-container {
+  width: 100%; /* Make the button container take full width */
+  display: flex; /* Enable flexbox for the button container */
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 1em; /* Maintain some space above the button */
+}
+
+.home-portfolio-piece > .button-container > .project-link {
+  width: fit-content; /* Allow the button to size based on its content */
+  display: block; /* Ensure the link behaves as a block for proper centering */
+}
+
+/* Adjustments for smaller screens to maintain layout */
+@media (max-width: 768px) {
+  .home-portfolio-piece > figure {
+    width: 100%; /* Allow image to take full width on smaller screens */
+  }
+}
+
 #skills {
   background-color: #F19494;
 }
@@ -848,6 +909,29 @@ header h2 {
   justify-content: space-between; /* Distribute space between the two items */
 }
 
+@media (min-width: 769px) {
+  #skills .language-wrapper,
+  #skills .tool-wrapper {
+    padding-left: 10%; /* Adjust as needed */
+    padding-right: 10%; /* Adjust as needed */
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  #skills .language-wrapper,
+  #skills .tool-wrapper {
+    flex-direction: column; /* Stack items vertically */
+    padding-left: 15px; /* Add left padding to the container for mobile */
+    padding-right: 15px; /* Add right padding to the container for mobile */
+  }
+
+  #skills .language-wrapper p,
+  #skills .tool-wrapper p {
+    width: 100%; /* Make each item take full width on mobile */
+    margin-bottom: 10px; /* Adjust vertical spacing */
+  }
+}
 /* About */
 #about {
   width: 100%;
@@ -863,6 +947,22 @@ header h2 {
   color: #4a4f3e;
 }
 
+@media (max-width: 768px) {
+  #about figure {
+    display: flex; /* Enable flexbox for centering */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically (if needed) */
+    width: 70%; /* Adjust for a smaller size */
+    margin-left: auto; /* Create equal left and right margin for centering */
+    margin-right: auto;
+    padding: 10%; /* Adjust for equal padding on all sides */
+  }
+
+  #profile-image {
+    width: 100%; /* Make the image fill its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
 /* -------------------- Base Footer Styles -------------------- */
 footer {
   background-color: #f19494;
@@ -883,7 +983,44 @@ footer .contact-info {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+@media (min-width: 769px) {
+  #connect .contact-info {
+    justify-content: center; /* Center the icons horizontally */
+    gap: 20px; /* Adjust this value to control the space between the icons */
+    padding: 20px; /* Add padding around the icons */
+  }
 
+  #connect .contact-info a {
+    padding: 10px; /* Add padding around each icon */
+    border-radius: 50%; /* Make the padding area circular (optional) */
+  }
+}
+
+/* Mobile styles (as they were) */
+@media (max-width: 768px) {
+  #connect .contact-info {
+    justify-content: space-around; /* Keep the mobile spacing */
+    padding: 15px 0; /* Adjust mobile padding if needed */
+  }
+
+  #connect .contact-info a {
+    padding: 10px; /* Keep padding around mobile icons */
+  }
+}
+
+#connect .contact-wrapper:nth-child(2) p a {
+  color: #333; /* Set the initial color to match the desktop menu text */
+  background-color: transparent; /* Ensure no background initially */
+  padding: 5px; /* Add some padding for better hover area */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  text-decoration: none; /* Remove default underline */
+}
+
+#connect .contact-wrapper:nth-child(2) p a:hover {
+  background-color: #f8c6c6; /* Apply the desktop menu hover background */
+  color: #333; /* Keep the text color consistent with the desktop hover */
+  text-decoration: underline; /* Add underline on hover for clear indication */
+}
 
 footer span {
   color: var(--light-blue);
