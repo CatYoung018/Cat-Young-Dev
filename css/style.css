@@ -761,30 +761,33 @@ header h2 {
   width: 100%;
 }
 .portfolio-wrapper {
-  display: flex; /* Enable flexbox for the container */
-  flex-direction: row; /* Ensure items are arranged in a row */
-  justify-content: space-between; /* Distribute space between the first two */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Ensure wrapping is enabled */
+  gap: 30px; /* Use gap for consistent spacing between items */
 }
 
 .home-portfolio-piece {
-  width: calc(33.33% - 20px); /* Make each project take up roughly one-third of the width with some spacing */
-  margin-bottom: 40px; /* Keep the vertical spacing for now */
-  min-height: 400px; /* Adjust this value as needed */
-  display: flex; /* Add flexbox to control vertical alignment of content */
-  flex-direction: column; /* Stack the content vertically */
-  align-items: flex-start; /* Align items to the start of the cross-axis (left) */
+  width: calc(33.33% - 20px); /* Aim for three items per row with gap */
+  margin-bottom: 40px; /* Vertical spacing between rows */
+  min-height: 400px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* Media query for smaller screens (tablets and below) */
-@media (max-width: 768px) {
-  .portfolio-wrapper {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-  }
-
+/* Adjust for two items per row on slightly smaller screens */
+@media (max-width: 992px) {
   .home-portfolio-piece {
-    width: 100%; /* Make each project piece take full width */
-    margin-right: 0; /* Remove any right margin */
+    width: calc(50% - 20px);
+  }
+}
+
+/* Full width for single column on smaller screens */
+@media (max-width: 768px) {
+  .home-portfolio-piece {
+    width: 100%;
   }
 }
 
