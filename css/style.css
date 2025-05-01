@@ -764,12 +764,16 @@ header h2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; /* Ensure wrapping is enabled */
-  gap: 30px; /* Use gap for consistent spacing between items */
+  gap: 20px; /* --- Set your desired gap here (e.g., 30px) --- */
+  max-width: 1140px; /* Or your desired max container width */
+  margin: 0 auto;
+  padding: 0 30px; /* Add padding to the wrapper */
+  box-sizing: border-box; /* Important for calc() with padding/border */
 }
 
 .home-portfolio-piece {
   width: calc(33.33% - 20px); /* Aim for three items per row with gap */
-  margin-bottom: 40px; /* Vertical spacing between rows */
+  margin-bottom: 60px; /* Vertical spacing between rows */
   min-height: 400px; /* Adjust as needed */
   display: flex;
   flex-direction: column;
@@ -780,7 +784,7 @@ header h2 {
 /* Adjust for two items per row on slightly smaller screens */
 @media (max-width: 992px) {
   .home-portfolio-piece {
-    width: calc(50% - 20px);
+    width: calc((100% - 60px) / 3);
   }
 }
 
