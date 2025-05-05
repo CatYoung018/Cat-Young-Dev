@@ -339,7 +339,12 @@ footer {
   width: 85%;
 }
 
-#work p,
+#work p {
+  width: 90%;
+  text-align: left;
+}
+
+
 #about p {
   width: 100%;
   text-align: justify;
@@ -769,16 +774,23 @@ header h2 {
   margin: 0 auto;
   padding: 0 30px; /* Add padding to the wrapper */
   box-sizing: border-box; /* Important for calc() with padding/border */
+  justify-content: center; /* Center project items if there's not a full row */
 }
 
 .home-portfolio-piece {
-  width: calc(33.33% - 20px); /* Aim for three items per row with gap */
+  /* Updated width for a two-column layout */
+  /* We want 2 items per row with a 20px gap between them. */
+  /* The total width for 2 items and the gap is (2 * item_width) + gap = container_width */
+  /* 2 * item_width = container_width - gap */
+  /* item_width = (container_width - gap) / 2 */
+  /* Using calc(): width = calc(50% - half_of_the_gap) */
+  width: calc(50% - 10px); /* 50% of the container width minus 10px (half the gap) */
   margin-bottom: 60px; /* Vertical spacing between rows */
-  min-height: 400px; /* Adjust as needed */
+  min-height: 400px; /* Adjust as needed - ensures consistent height if content varies */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: center; /* Centers content horizontally within the project div */
+  text-align: center; /* Centers text within the project div */
 }
 
 /* Adjust for two items per row on slightly smaller screens */
