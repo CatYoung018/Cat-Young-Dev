@@ -1,14 +1,8 @@
 /*! HTML5 Boilerplate v9.0.0-RC1 | MIT License | https://html5boilerplate.com/ */
-
 /* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
 
 /* ==========================================================================
-   Base styles: opinionated defaults
+   Base styles: opinionated defaults (from H5BP)
    ========================================================================== */
 
    html {
@@ -54,138 +48,334 @@
   textarea {
     resize: vertical;
   }
+  
+  /* ==========================================================================
+     Author's custom styles
+     ========================================================================== */
+  
+  /* === 1. Variables === */
+  :root {
+    --primary-text-color: #453E4F;
+    --primary-background-color: white;
+    --accent-color-1: #F19494;
+    --accent-color-2: #FFE8D6;
+    --selection-background: #b3d4fc;
+    --hr-border-color: #ccc;
+    --button-hover-background: #CAC4D1;
+    --button-hover-text-color: var(--primary-text-color);
+    --white: #FFFFFF;
+    --about-text-color: #4a4f3e;
+    --back-to-top-background: #e8eff7;
+    --back-to-top-text-color: var(--primary-text-color);
+    --primary-font: 'Open Sans', sans-serif;
+    --secondary-font: 'Alike', serif;
+  }
+  
+  /* === 2. General Styles === */
+  body {
+    font-size: 1em;
+    font-family: var(--primary-font);
+    color: var(--primary-text-color);
+    background-color: var(--primary-background-color);
+  }
+  
+  ul,
+  ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--secondary-font);
+    line-height: 1.5;
+    width: 100%;
+    margin: 0; /* Reset default margins */
+  }
+  
+  h1 {
+    color: var(--primary-text-color);
+    font-size: 3rem;
+    line-height: 1;
+  }
+  
+  h2 {
+    color: var(--primary-text-color);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-top: 60px; /* Specific margin from original code */
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+    margin-bottom: 20px; /* Specific margin from original code */
+  }
+  
+  h4 {
+    font-size: 1.25rem;
+    margin: 0 0 40px 0; /* Specific margin from original code */
+    font-weight: bold; /* Added from skills h4 */
+  }
+  
+  h5 {
+    font-size: 1.5rem;
+    margin: 0 0 40px 0; /* Specific margin from original code (contact-title) */
+  }
+  
+  p,
+  li {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0; /* Reset default margins */
+  }
+  
+  span {
+    font-weight: bold;
+  }
+  
+  img {
+    width: 100%;
+    vertical-align: middle; /* From H5BP base styles */
+  }
+  
+  figure {
+     margin: 20px 0 40px 0; /* Specific margin from original code */
+  }
+  
+  figure img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  address {
+    font-style: normal;
+  }
+  
+  /* Specific text styles */
+  .project-link,
+  .language-wrapper p,
+  .tool-wrapper p {
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    color: var(--primary-text-color);
+  }
+  
+  .project-description {
+    margin: 0 0 30px 0; /* Specific margin from original code */
+  }
+  
+  
+  /* === 3. Layout / Structural Styles === */
+  header,
+  #work,
+  #skills,
+  #about,
+  footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-flow: row wrap;
+  }
+  
+  .content-wrapper {
+    width: 85%;
+  }
+  
+  /* Specific padding for sections */
+  header {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    background-color: var(--accent-color-1); /* From original header styles */
+    position: relative; /* Needed for absolute positioning of mobile button */
+  }
+  
+  nav {
+    margin-bottom: 60px; /* Specific margin from original code */
+  }
+  
+  #work {
+    padding-top: 60px; /* Specific padding from original code */
+    width: 100%; /* From original mobile styles */
+  }
+  
+  #work .content-wrapper h3.portfolio-header {
+    text-align: center;
+    margin-bottom: 40px; /* Specific margin from original code */
+  }
+  
+  #skills {
+    padding-top: 80px; /* Specific padding from original code */
+    padding-bottom: 80px; /* Specific padding from original code */
+    width: 100%; /* From original mobile styles */
+    background-color: var(--accent-color-1); /* From original skills background */
+  }
+  
+  #about {
+    padding-top: 60px; /* Specific padding from original code */
+    padding-bottom: 60px; /* Specific padding from original code */
+    width: 100%; /* From original about width */
+    display: flex; /* Added from original about display */
+    justify-content: center; /* Added from original about justify */
+    align-items: center; /* Added from original about align */
+  }
+  
+  #about .content-wrapper {
+     width: 85%; /* From original about content-wrapper */
+  }
+  
+  footer {
+    padding: 80px 0; /* Specific padding from original code */
+    background-color: var(--accent-color-1); /* From original footer background */
+  }
+  
+  
+ /* === 4. Section Specific Styles === */
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-/* General Styles */
-:root {
-  --primary-text-color: #453E4F;
-  --primary-background-color: white;
-  --accent-color-1: #F19494;
-  --accent-color-2: #FFE8D6;
-  --selection-background: #b3d4fc;
-  --hr-border-color: #ccc;
-  --button-hover-background: #CAC4D1;
-  --button-hover-text-color: var(--primary-text-color);
-  --white: #FFFFFF;
-  --about-text-color: #4a4f3e;
-  --back-to-top-background: #e8eff7;
-  --back-to-top-text-color: var(--primary-text-color);
-  --primary-font: 'Open Sans', sans-serif;
-  --secondary-font: 'Alike', serif;
-}
-
-body {
-  font-size: 1em;
-  font-family: 'Open Sans', sans-serif;
-  color: #453E4F;
-  background-color: white;
-  /* Sometimes the default background for a browser isn't exactly white. Adding a default allows more consistency between browsers. */
-}
-
-ul,
-ol {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: #453E4F;
-  text-decoration: none;
-}
-
-h1 {
-  color: #453E4F;
-  font-family: 'Alike', serif;
-  font-size: 3rem;
-  line-height: 1;
-  width: 100%
-}
-
-h2 {
-  color: #453E4F;
-  font-family: 'Alike', serif;
-  font-size: 1.3rem;
-  line-height: 1.5;
-  width: 100%;
-  font-weight: 400;
-}
-
-h3 {
-  font-size: 1.75rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-}
-
-h5 {
-  font-size: 1.5rem;
-}
-
-.project-link,
-.language-wrapper p,
-.tool-wrapper p {
-  text-transform: uppercase;
-  font-size: 1.125rem;
-  color: #453E4F;
-}
-
-.tool-wrapper {
+/* --- Projects (#work) --- */
+/* (Keep the Projects section CSS as provided in the last cleanup) */
+.portfolio-wrapper {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping for more than two items */
-  justify-content: flex-start; /* Align items to the left on larger screens */
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
-/* Media query for larger screens (e.g., min-width: 769px - typical tablet breakpoint) */
-@media (min-width: 769px) {
-  .language-wrapper {
-    justify-content: flex-start; /* Align to the left */
-  }
-
-  .language-wrapper p,
-  .tool-wrapper p {
-    width: auto; /* Size based on content */
-    margin-right: 10px; /* Add right margin for spacing */
-    margin-left: 0; /* Reset left margin */
-  }
+.home-portfolio-piece {
+  /* Base width for a two-column layout (2, 2, 1 or 2, 2, 2 pattern) */
+  width: calc(50% - 10px);
+  margin-bottom: 60px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-/* Media query for smaller screens (tablets and below) */
-@media (max-width: 768px) {
-  .language-wrapper {
-    justify-content: space-between; /* Keep two columns on smaller screens */
-  }
-
-  .language-wrapper p,
-  .tool-wrapper p {
-    width: calc(50% - 10px); /* Maintain two columns */
-    margin: 10px 0; /* Adjust margin for column layout */
-  }
-
-  .tool-wrapper {
-    justify-content: space-between; /* Keep two columns on smaller screens */
-  }
+#work p {
+  width: 90%;
+  text-align: left;
 }
 
-#about {
+.home-portfolio-piece h4 {
+   font-weight: bold;
+   text-align: center;
+   margin-top: 0;
+   margin-bottom: 0.5em;
+}
+
+
+.home-portfolio-piece > figure {
+  width: 80%;
+  margin-bottom: 1em;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#about .content-wrapper {
-  width: 85%;
+.home-portfolio-piece > .project-description,
+.home-portfolio-piece > p {
+  text-align: center;
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.flex-fill {
+  flex-grow: 1;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.project-link {
+  background-color: #453E4F;
+  padding: .75rem 3rem;
+  border-radius: 30px;
+  color: #FFFFFF;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0.85em;
+}
+
+.project-link:hover {
+  background-color: var(--button-hover-background);
+  color: var(--button-hover-text-color);
+}
+
+
+/* --- Skills (#skills) --- */
+#skills {
+  background-color: var(--accent-color-1); /* Keep background */
+}
+
+.skills-header {
+  margin-bottom: 20px; /* Keep margin */
+}
+
+.language-wrapper,
+.tool-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Add a gap between skill/tool items */
+  justify-content: center; /* Center items when they don't fill the row */
+  padding: 0 15px; /* Add some padding to the wrappers */
+}
+
+/* Base styles for skill/tool paragraphs - using mobile-first approach */
+/* These styles will apply primarily on smaller screens unless overridden */
+.language-wrapper p,
+.tool-wrapper p {
+  background-color: var(--accent-color-2);
+  padding: 15px; /* Added padding for the wrapper effect */
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%; /* Full width on small screens */
+  margin: 0; /* Remove previous margins if any */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  /* Add a subtle shadow or border if desired */
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); */
+  /* border: 1px solid #ccc; */
+}
+#skills .language-wrapper + h4 {
+  margin-top: 40px; /* Adjust this value for more or less space */
+}
+
+/* Specific override for .tool */
+.tool {
+  width: 100%;
+  margin: 5px 0; /* Added margin for consistency if not set elsewhere */
+}
+
+
+/* --- About (#about) --- */
+/* (Keep the About section CSS as provided in the last cleanup) */
+#about h3,
+#about h4,
+#about p {
+  color: var(--about-text-color);
 }
 
 #about .about-content-wrapper {
-  display: flex; /* Enable flexbox for the container of image and text */
-  flex-direction: row; /* Arrange items in a row */
-  align-items: center; /* Vertically align image and text */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #about figure {
@@ -198,9 +388,9 @@ h5 {
 }
 
 #profile-image {
-  display: block;
   width: 100%;
   height: auto;
+  display: block;
   border-radius: 0;
   overflow: visible;
 }
@@ -213,236 +403,26 @@ h5 {
 }
 
 .about-info h3 {
-  margin-top: 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.about-info h4,
-.contact-title {
-  font-weight: 400;
-}
-
-.about-info h3 {
-  margin: 30px 0 30px 0;
+.about-info h4 {
+    font-weight: 400;
 }
 
 .about-text {
-  margin: 0 0 30px 0; /* Original paragraph margin */
-}
-
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Alike', serif;
-  line-height: 1.5;
-  width: 100%
-}
-
-p,
-li {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-span {
-  font-weight: bold;
-}
-
-img {
-  width: 100%;
-}
-
-figure img {
-  max-width: 100%; /* Set the maximum width to 60% of the <figure> container */
-  height: auto; /* Maintain the image's aspect ratio */
-}
-
-address {
-  font-style: normal;
-}
-
-/* Media query for screens smaller than 768px (typical for tablets) */
-@media (max-width: 768px) {
-  #about .about-content-wrapper {
-    flex-direction: column; /* Stack image and text vertically */
-    align-items: stretch; /* Make items take full width */
-  }
-
-  #about figure {
-    flex-basis: 100%;
-    max-width: 100%;
-    margin-right: 0;
-    margin-bottom: 20px; /* Add some space below the image */
-  }
-
-  .about-info {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-  .about-info h3 {
-    margin-top: 20px; /* Adjust top margin for the heading */
-  }
-
-  .about-text {
-    margin-bottom: 20px; /* Adjust bottom margin for paragraph on tablets */
-  }
-
-  #about .content-wrapper {
-    padding-left: 20px; /* Add left padding for tablet screens */
-    padding-right: 20px; /* Add right padding for tablet screens */
-    width: auto; /* Allow width to adjust with padding */
-  }
-}
-@media (max-width: 768px) {
-  #about .about-info {
-    padding-left: 20px; /* Adjust this value for more or less left padding */
-    padding-right: 20px; /* Adjust this value for more or less right padding */
-  }
-}
-
-/* Media query for screens smaller than 576px (typical for mobile phones) */
-@media (max-width: 576px) {
-  #about .content-wrapper {
-    width: 95%; /* Adjust overall width for smaller screens */
-    padding-left: 15px; /* Add left padding for mobile screens */
-    padding-right: 15px; /* Add right padding for mobile screens */
-  }
-
-  .about-info h3 {
-    font-size: 1.5rem; /* Slightly reduce heading size for very small screens */
-  }
-
-  p,
-  li {
-    font-size: 0.9rem; /* Slightly reduce paragraph and list item size */
-  }
-
-  .about-text {
-    margin-bottom: 15px; /* Adjust bottom margin for paragraph on mobile */
-  }
-}
-
-/* Structural Styles */
-header,
-#work,
-#skills,
-#about,
-footer {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-flow: row wrap;
-}
-
-.content-wrapper {
-  width: 85%;
-}
-
-#work p {
-  width: 90%;
-  text-align: left;
-}
-
-
-#about p {
-  width: 100%;
   text-align: justify;
+  margin: 0 0 30px 0;
 }
 
 #about .about-info p:last-child {
   text-align: center;
 }
-/* set the margins & paddings for each section - these are only a suggestion :) */
-/* setting all margins to zero removes all browser added default margins */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
 
-p {
-  margin: 0;
-}
 
-/* then can set the margin & paddings for any element */
-header {
-  padding-top: 30px;
-  padding-bottom: 60px;
-}
-
-nav {
-  margin-bottom: 60px;
-}
-
-#work {
-  padding-top: 60px;
-}
-
-#skills {
-  padding-bottom: 80px;
-}
-
-#about {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
-footer {
-  padding: 80px 0;
-}
-
-h2 {
-  margin-top: 60px;
-}
-
-h3 {
-  margin-bottom: 20px;
-}
-
-h4 {
-  margin: 0 0 40px 0;
-}
-
-.project-description {
-  margin: 0 0 30px 0;
-}
-
-.project-link {
-  display: flex;
-  justify-content: center;
-  white-space: nowrap;
-  font-size: 0.85em;
-}
-
-@media (max-width: 600px) { /* Adjust the breakpoint as needed */
-  .project-link {
-    font-size: 0.9em; /* Reduce the font size */
-  }
-}
-#skills {
-  padding-top: 80px;
-}
-
-figure {
-  margin: 20px 0 40px 0;
-}
-
-.skills-header {
-  margin-bottom: 20px;
-}
-
-.about-info h3 {
-  margin: 40px 0 40px 0;
-}
-
-.about-text {
-  margin: 0 0 30px 0;
-}
-
+/* --- Footer (#connect) --- */
+/* (Keep the Footer section CSS as provided in the last cleanup) */
 #contact h3 {
   margin-bottom: 60px;
 }
@@ -450,37 +430,60 @@ figure {
 .contact-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  padding-top: 15px;
+  padding-bottom: 15px;
   margin: 0 0 60px 0;
   text-align: center;
 }
 
-.contact-title {
-  margin: 0 0 40px 0;
-  text-align: center;
+#connect i {
+  color: var(--light-blue);
 }
 
-.contact-info p {
-  margin: 0; /* Remove default paragraph margins if needed */
+#connect a i:hover {
+  color: #d6bdbd; /* Changed icon hover color to match navigation hover color */
+}
+
+#connect .contact-wrapper:nth-child(2) p a {
+  color: #333;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#connect .contact-wrapper:nth-child(2) p a:hover {
+  background-color: #f8c6c6;
+  color: #333;
+  text-decoration: underline;
+}
+
+.contact-title {
+   font-weight: 400;
+   text-align: center;
+   margin: 0 0 40px 0;
 }
 
 .copyright {
   margin-top: 60px;
-}
-/* -------------------- Base Header Styles -------------------- */
-
-header {
-  background-color: #f19494;
-  position: relative; /* Needed for absolute positioning of the mobile button */
+  color: var(--light-blue);
 }
 
+/* === 5. Navigation (Mobile & Desktop) === */
+/* (Keep Navigation CSS as provided in the last cleanup) */
 header nav ul li {
   font-size: .80rem;
   font-weight: bold;
   text-transform: uppercase;
-  /* Remove margin-bottom for horizontal layout */
 }
 
 header nav ul li a {
@@ -492,7 +495,7 @@ header nav ul li a {
   border-radius: 30px;
   background-color: transparent;
   transition: background-color 0.3s ease;
-  display: block; /* Make the entire link area clickable */
+  display: block;
 }
 
 header nav ul li a:hover {
@@ -513,24 +516,90 @@ nav #contact-link a {
   color: white;
 }
 
-nav #contact-link a:hover {
+
+/* Desktop Menu (Default) */
+.desktop-menu {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Mobile Menu (Initially Hidden) */
+.mobile-menu-button {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.mobile-menu-button span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.mobile-menu-button.open span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-button.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-button.open span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.mobile-menu-items {
+  display: none;
+  flex-direction: column;
+  background-color: var(--accent-color-1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.mobile-menu-items.open {
+  display: flex;
+}
+
+.mobile-menu-items li {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.mobile-menu-items li:last-child {
+  margin-bottom: 0;
+}
+
+.mobile-menu-items li a {
+  display: block;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #f8c6c6;
+  color: #333;
+}
+
+.mobile-menu-items li a:hover {
   background-color: #e6a8a8;
-  color: white;
 }
 
-header h1 {
-  width: 100%;
-  text-align: center; /* Center the title on smaller screens */
-  margin-top: 15px; /* Add some top margin */
-  margin-bottom: 15px; /* Add some bottom margin */
-}
 
-header h2 {
-  width: 100%;
-  text-align: center; /* Center the subtitle on smaller screens */
-  margin-bottom: 20px; /* Add some bottom margin */
-}
-
+/* === 6. Back to Top Button === */
+/* (Keep Back to Top Button CSS as provided in the last cleanup) */
 #back-to-top-btn {
   display: none;
   position: fixed;
@@ -539,8 +608,8 @@ header h2 {
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #e8eff7;
-  color: #453E4F;
+  background-color: var(--back-to-top-background);
+  color: var(--back-to-top-text-color);
   cursor: pointer;
   padding: 10px 15px;
   border-radius: 30px;
@@ -559,668 +628,248 @@ header h2 {
   vertical-align: middle;
   margin-right: 5px;
 }
+
 @media (prefers-reduced-motion: no-preference) {
   html {
-      scroll-behavior: smooth;  
+      scroll-behavior: smooth;
   }
 }
 
-/* Mobile Menu Styles (Initially Hidden) */
-.mobile-menu-button {
-  display: none; /* Hidden by default on larger screens */
-  position: absolute;
-  top: 10px; /* Adjust vertical position as needed */
-  right: 15px; /* Adjust horizontal position as needed */
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
+
+/* === 7. Helper Classes === */
+/* (Keep Helper Classes CSS as provided in the last cleanup) */
+.hidden, [hidden] { display: none !important; }
+
+.visually-hidden {
+  border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px;
+  overflow: hidden; padding: 0; position: absolute; width: 1px;
+  white-space: nowrap;
 }
 
-.mobile-menu-button span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #333; /* Color of the hamburger lines */
-  margin: 5px 0;
-  transition: 0.4s;
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto; height: auto; margin: 0; overflow: visible;
+  position: static; white-space: inherit; width: auto;
 }
 
-.nav-links-mobile {
-  display: none; /* Hidden by default on larger screens */
-  flex-direction: column; /* Stack links vertically */
-  background-color: #f19494; /* Match header background */
-  position: absolute;
-  top: 100%; /* Position below the header */
-  left: 0;
-  width: 100%;
-  z-index: 10; /* Ensure it's above other content */
-  padding: 15px;
-  box-sizing: border-box; /* Include padding in width calculation */
-}
+.invisible { visibility: hidden; }
 
-.nav-links-mobile li {
-  margin-bottom: 15px; /* Add spacing between stacked links */
-  text-align: center; /* Center the links */
-}
+.clearfix::before, .clearfix::after { content: ""; display: table; }
+.clearfix::after { clear: both; }
 
-.nav-links-mobile li:last-child {
-  margin-bottom: 0; /* Remove bottom margin from the last item */
-}
 
-.nav-links-mobile li a {
-  display: block; /* Make the whole area clickable */
-  padding: 10px;
-  border-radius: 30px; /* Keep the rounded corners */
-  background-color: #f8c6c6; /* Give a background to each link */
-  color: #333;
-}
+/* === 8. Media Queries (Responsive Styles) === */
 
-.nav-links-mobile li a:hover {
-  background-color: #e6a8a8; /* Darker hover color */
-}
-
-.nav-links-mobile.open {
-  display: flex; /* Show the mobile navigation */
-}
-
-.mobile-menu-button.open span:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.mobile-menu-button.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-button.open span:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Media Query for Smaller Screens (e.g., 768px and below) */
+/* Mobile Breakpoint (768px and below) */
 @media (max-width: 768px) {
-  nav ul {
-    display: none; /* Hide the default horizontal navigation */
-  }
+  /* Hide Desktop Menu */
+  .desktop-menu { display: none; }
 
-  .mobile-menu-button {
-    display: block; /* Show the mobile menu button */
-  }
+  /* Show Mobile Menu Button */
+  .mobile-menu-button { display: block; }
 
-  .nav-links-mobile {
-    display: none; /* Hidden by default on larger screens */
-    flex-direction: column;
-    /* ... other styles ... */
-  }
+  /* Adjust Header Titles */
+  header h1 { font-size: 1.5rem; }
+  header h2 { font-size: 1rem; }
 
-  header h1 {
-    font-size: 1.5rem; /* Adjust title size */
-  }
+  /* --- Section Layouts on Mobile --- */
+  #work, #skills { width: 100%; }
+  #work h3 { width: 100%; }
 
-  header h2 {
-    font-size: 1rem; /* Adjust subtitle size */
-  }
-}
-/* Initially hide the mobile menu items on larger screens */
-.mobile-menu-items {
-  display: none;
-}
-
-/* Show the desktop menu on larger screens */
-.desktop-menu {
-  display: flex; /* To maintain the horizontal layout */
-  justify-content: space-evenly;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.desktop-menu li {
-  font-size: .80rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  /* Remove margin-bottom for horizontal layout */
-}
-
-.desktop-menu li a {
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #333;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 30px;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-  display: block; /* Make the entire link area clickable */
-}
-
-.desktop-menu li a:hover {
-  background-color: #f8c6c6;
-  color: #333;
-}
-
-/* Media Query for Smaller Screens (e.g., 768px and below) */
-@media (max-width: 768px) {
-  .desktop-menu {
-    display: none; /* Hide the desktop navigation on smaller screens */
-  }
-
-  .mobile-menu-items {
-    display: none; /* Initially hidden, will be shown when the mobile button is clicked (via JavaScript) */
-    flex-direction: column;
-    background-color: #f19494;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    padding: 15px;
-    box-sizing: border-box;
-  }
-
-  .mobile-menu-items.open {
-    display: flex; /* Show the mobile navigation when the 'open' class is added */
-  }
-
-  .mobile-menu-items li {
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .mobile-menu-items li:last-child {
-    margin-bottom: 0;
-  }
-
-  .mobile-menu-items li a {
-    display: block;
-    padding: 10px;
-    border-radius: 30px;
-    background-color: #f8c6c6;
-    color: #333;
-  }
-
-  .mobile-menu-items li a:hover {
-    background-color: #e6a8a8;
-  }
-
-  .mobile-menu-button {
-    display: block;
-  }
-
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  header h2 {
-    font-size: 1rem;
-  }
-}
-/* -------------------- Mobile Styles - Homepage -------------------- */
-
-/* Portfolio */
-#work,
-#skills {
-  width: 100%;
-}
-
-#work h3 {
-  width: 100%;
-}
-.portfolio-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; /* Ensure wrapping is enabled */
-  gap: 20px; /* --- Set your desired gap here (e.g., 30px) --- */
-  max-width: 1140px; /* Or your desired max container width */
-  margin: 0 auto;
-  padding: 0 30px; /* Add padding to the wrapper */
-  box-sizing: border-box; /* Important for calc() with padding/border */
-  justify-content: center; /* Center project items if there's not a full row */
-}
-
-.home-portfolio-piece {
-  /* Updated width for a two-column layout */
-  /* We want 2 items per row with a 20px gap between them. */
-  /* The total width for 2 items and the gap is (2 * item_width) + gap = container_width */
-  /* 2 * item_width = container_width - gap */
-  /* item_width = (container_width - gap) / 2 */
-  /* Using calc(): width = calc(50% - half_of_the_gap) */
-  width: calc(50% - 10px); /* 50% of the container width minus 10px (half the gap) */
-  margin-bottom: 60px; /* Vertical spacing between rows */
-  min-height: 400px; /* Adjust as needed - ensures consistent height if content varies */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers content horizontally within the project div */
-  text-align: center; /* Centers text within the project div */
-}
-
-/* Adjust for two items per row on slightly smaller screens */
-@media (max-width: 992px) {
-  .home-portfolio-piece {
-    width: calc((100% - 60px) / 3);
-  }
-}
-
-/* Full width for single column on smaller screens */
-@media (max-width: 768px) {
+  /* Stack Project Items */
   .home-portfolio-piece {
     width: 100%;
   }
-}
 
-.home-portfolio-piece h4 {
-  font-weight: bold;
-  text-align: center; /* Center the project title */
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
-
-.home-portfolio-piece > figure {
-  width: 80%; /* Adjust the width of the image container if needed */
-  margin-bottom: 1em; /* Add some space below the image */
-}
-
-.flex-fill {
-  flex-grow: 1;
-}
-.home-portfolio-piece > .project-description,
-.home-portfolio-piece > p {
-  text-align: center; /* Center the text content */
-  margin-top: 0.25em;
-  margin-bottom: 0.5em;
-}
-
-.button-container {
-  width: fit-content;
-  margin-top: 1em;
-}
-
-.project-link {
-  background-color: #453E4F;
-  padding: .75rem 3rem;
-  border-radius: 30px;
-  color: #FFFFFF;
-  display: block;
-  text-align: center;
-}
-
-.project-link:hover {
-  background-color: #CAC4D1;
-  color: #453E4F;
-}
-
-/* Style for the "Projects" title */
-#work .content-wrapper h3.portfolio-header {
-  text-align: center;
-  margin-bottom: 40px; /* Add some space below the title */
-}
-
-/* Styles for centering content within each project */
-.home-portfolio-piece {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally */
-  text-align: center; /* Center text within the container as a fallback */
-}
-
-.home-portfolio-piece > figure {
-  display: flex; /* Enable flexbox for the figure */
-  justify-content: center; /* Center the image horizontally */
-  width: 80%; /* Maintain a reasonable width for the image container */
-  margin-left: auto; /* These two properties together */
-  margin-right: auto; /* will also center the figure block */
-  margin-bottom: 1em;
-}
-
-.home-portfolio-piece > .project-description,
-.home-portfolio-piece > p {
-  text-align: center; /* Ensure description and skills/tools are centered */
-}
-
-.home-portfolio-piece > .button-container {
-  width: 100%; /* Make the button container take full width */
-  display: flex; /* Enable flexbox for the button container */
-  justify-content: center; /* Center the button horizontally */
-  margin-top: 1em; /* Maintain some space above the button */
-}
-
-.home-portfolio-piece > .button-container > .project-link {
-  width: fit-content; /* Allow the button to size based on its content */
-  display: block; /* Ensure the link behaves as a block for proper centering */
-}
-
-/* Adjustments for smaller screens to maintain layout */
-@media (max-width: 768px) {
   .home-portfolio-piece > figure {
-    width: 100%; /* Allow image to take full width on smaller screens */
+    width: 100%; /* Allow image to take full width */
   }
-}
 
-#skills {
-  background-color: #F19494;
-}
-
-#skills h4 {
-  margin: 40px 0 40px 0;
-  font-weight: bold;
-}
-
-.language-wrapper {
-  display: flex; /* Make it a flex container */
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  justify-content: space-between; /* Distribute space between items */
-}
-
-.language-wrapper p,
-.tool-wrapper p {
-  background-color: #FFE8D6;
-  padding: 10px 0;
-  margin: 5px 0; /* Adjust margin for better spacing in columns */
-  width: calc(50% - 10px); /* Set the width to roughly half, with some spacing */
-  text-align: center; /* Center the text within each skill block */
-}
-
-.tool {
-  width: 100%;
-}
-
-.tool-wrapper {
-  display: flex; /* Make it a flex container */
-  justify-content: space-between; /* Distribute space between the two items */
-}
-
-@media (min-width: 769px) {
   #skills .language-wrapper,
   #skills .tool-wrapper {
-    padding-left: 10%; /* Adjust as needed */
-    padding-right: 10%; /* Adjust as needed */
-  }
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-  #skills .language-wrapper,
-  #skills .tool-wrapper {
-    flex-direction: column; /* Stack items vertically */
-    padding-left: 15px; /* Add left padding to the container for mobile */
-    padding-right: 15px; /* Add right padding to the container for mobile */
+     flex-direction: column; /* Stack items vertically */
+     justify-content: center; /* Center the single column */
+     padding-left: 15px;
+     padding-right: 15px;
   }
 
   #skills .language-wrapper p,
   #skills .tool-wrapper p {
-    width: 100%; /* Make each item take full width on mobile */
-    margin-bottom: 10px; /* Adjust vertical spacing */
+    width: 100%; /* Make items take full width for single column */
+    margin: 5px 0; /* Add vertical margin between stacked items */
+    /* Added rules to prevent text wrapping */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Show ellipsis for truncated text */
   }
-}
-/* About */
-#about {
-  width: 100%;
-}
 
-#profile-image {
-  width: 90%;
-}
 
-#about h3,
-#about h4,
-#about p {
-  color: #4a4f3e;
-}
-
-@media (max-width: 768px) {
+  /* Stack About Section Content */
+  #about .about-content-wrapper {
+    flex-direction: column; 
+    align-items: center;
+  }
+  
   #about figure {
-    display: flex; /* Enable flexbox for centering */
-    justify-content: center; /* Center the image horizontally */
-    align-items: center; /* Center the image vertically (if needed) */
-    width: 70%; /* Adjust for a smaller size */
-    margin-left: auto; /* Create equal left and right margin for centering */
-    margin-right: auto;
-    padding: 10%; /* Adjust for equal padding on all sides */
+    /* Simplified centering and width control for the image container */
+    width: 80%; /* Control the overall width of the image container */
+    margin: 0 auto 20px auto; /* Center the container and add bottom margin */
+    flex-basis: auto; /* Reset flex basis */
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 100%; /* Ensure it doesn't exceed the content wrapper */
+    padding: 0; /* Remove any potentially conflicting padding */
+    display: block; /* Treat figure as a block element for margin: auto */
   }
 
   #profile-image {
-    width: 100%; /* Make the image fill its container */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; /* Image takes the full width of its parent figure */
+    height: auto;
+    display: block; /* Ensure image is block-level */
   }
-}
-/* -------------------- Base Footer Styles -------------------- */
-footer {
-  background-color: #f19494;
+
+  .about-info {
+    flex-basis: auto; /* Reset flex basis */
+    flex-grow: 1; /* Allow the text container to grow */
+    flex-shrink: 1;
+    max-width: 100%; /* Ensure it doesn't exceed the content wrapper */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #about .content-wrapper {
+    /* Keep existing padding/width adjustments for the content wrapper */
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+  }
+  .about-info h3 { margin-top: 20px; }
+  .about-text { margin-bottom: 20px; }
+  #about .content-wrapper {
+    padding-left: 20px; padding-right: 20px; width: auto;
+  }
+
+  /* Adjust Contact Info Layout */
+  #connect .contact-info { justify-content: space-around; padding: 15px 0; }
+  #connect .contact-info a { padding: 10px; }
+
+} /* End of max-width: 768px media query */
+
+
+/* Specific smaller screen adjustments (e.g., phones) */
+@media (max-width: 600px) {
+  .project-link { font-size: 0.9em; }
 }
 
-footer .contact-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+@media (max-width: 576px) {
+  #about .content-wrapper { width: 95%; padding-left: 15px; padding-right: 15px; }
+  .about-info h3 { font-size: 1.5rem; }
+  p, li { font-size: 0.9rem; }
+  .about-text { margin-bottom: 15px; }
 }
 
-footer .contact-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 60%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
+
+/* Larger screen adjustments (769px and up) */
 @media (min-width: 769px) {
-  #connect .contact-info {
-    justify-content: center; /* Center the icons horizontally */
-    gap: 20px; /* Adjust this value to control the space between the icons */
-    padding: 20px; /* Add padding around the icons */
+  /* Show Desktop Menu */
+  .desktop-menu { display: flex; justify-content: space-evenly; list-style: none; padding: 0; margin: 0; }
+
+  /* Hide Mobile Menu Button */
+  .mobile-menu-button { display: none; }
+
+  /* Hide Mobile Menu Items */
+  .mobile-menu-items { display: none; }
+
+  .content-wrapper {
+    width: 185%; /* Maintain responsiveness for screens below max-width */
+    max-width: 1100px; /* Set a maximum width for the content on large screens */
+    margin: 0 auto; /* Center the content wrapper horizontally */
   }
 
-  #connect .contact-info a {
-    padding: 10px; /* Add padding around each icon */
-    border-radius: 50%; /* Make the padding area circular (optional) */
+   /* --- Skills/Tools Layout (TWO COLUMNS on Desktop with smaller gap) --- */
+   .language-wrapper,
+   .tool-wrapper {
+     /* Inherit display: flex and flex-wrap: wrap from base styles */
+     gap: 8px; /* Set the smaller gap for desktop */
+     justify-content: center; /* Keep items centered */
+     /* Inherit padding from base styles */
+   }
+
+   .language-wrapper p,
+   .tool-wrapper p {
+     /* Inherit general styles like background, padding, etc. */
+     width: calc(40% - 4px); /* Set width for two columns, accounting for the 8px gap (8 / 2 = 4) */
+     /* Inherit margin from base styles (which is 0) */
+     /* Ensure text wrapping is allowed on desktop */
+     white-space: normal;
+     overflow: visible;
+     text-overflow: clip;
+   }
+
+  .tool {
+     width: calc(50% - 10px); /* Explicitly set width for .tool on desktop to match others */
+     margin: 5px 0; /* Match margin */
   }
-}
 
-/* Mobile styles (as they were) */
-@media (max-width: 768px) {
-  #connect .contact-info {
-    justify-content: space-around; /* Keep the mobile spacing */
-    padding: 15px 0; /* Adjust mobile padding if needed */
+   /* Adjust Contact Info Layout */
+  #connect .contact-info { justify-content: center; gap: 20px; padding: 20px; }
+  #connect .contact-info a { padding: 10px; border-radius: 50%; }
+
+   /* Adjust About Section Layout */
+   /* --- About Section: Force stacked layout on all screens --- */
+   #about .about-content-wrapper {
+    flex-direction: column; /* Stack the image and text containers vertically */
+    align-items: center; /* Center the stacked items horizontally */
   }
 
-  #connect .contact-info a {
-    padding: 10px; /* Keep padding around mobile icons */
+  #about figure {
+    /* Styles for the image container in the stacked layout */
+    width: 40%; /* Control the width of the image container on larger screens */
+    margin: 0 auto 30px auto; /* Center the container and add space below it */
+    flex-basis: auto; /* Reset flex-basis */
+    flex-grow: 0; /* Prevent growth */
+    flex-shrink: 0; /* Prevent shrinking */
+    max-width: 100%; /* Ensure it doesn't overflow its parent */
+    padding: 0; /* Remove any conflicting padding */
+    display: block; /* Ensure block display for margin: auto */
   }
-}
 
-#connect .contact-wrapper:nth-child(2) p a {
-  color: #333; /* Set the initial color to match the desktop menu text */
-  background-color: transparent; /* Ensure no background initially */
-  padding: 5px; /* Add some padding for better hover area */
-  border-radius: 5px; /* Optional: Add rounded corners */
-  text-decoration: none; /* Remove default underline */
-}
-
-#connect .contact-wrapper:nth-child(2) p a:hover {
-  background-color: #f8c6c6; /* Apply the desktop menu hover background */
-  color: #333; /* Keep the text color consistent with the desktop hover */
-  text-decoration: underline; /* Add underline on hover for clear indication */
-}
-
-footer span {
-  color: var(--light-blue);
-  padding: 3px;
-}
-
-#connect i {
-  color: var(--light-blue);
-}
-#connect a i:hover {
-  color: var(--highlight);
-}
-
-.copyright {
-  color: var(--light-blue);
-}
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
-}
-
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-/* Media query for screens smaller than 768px (typical for tablets) */
-@media (max-width: 768px) {
-  #about .about-content-wrapper {
-    flex-direction: column; /* Stack image and text vertically */
-    align-items: stretch; /* Make items take full width */
+  #profile-image {
+    width: 100%; /* Image takes full width of its parent figure */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
   }
-}
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
 
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
+  .about-info {
+    /* Styles for the text container in the stacked layout */
+    flex-basis: auto; /* Reset flex-basis */
+    flex-grow: 1; /* Allow text container to grow */
+    flex-shrink: 1; /* Allow text container to shrink */
+    max-width: 80%; /* Limit the max width of the text block for readability */
+    margin: 0 auto; /* Center the text block */
+    padding: 0; /* Remove padding on the container itself */
+    text-align: center; /* Center the text content within the block */
+  }
 
+  /* Add padding to the text elements inside the centered info block */
+  .about-info h3,
+  .about-info h4,
+  .about-info p {
+    padding: 0 20px; /* Add horizontal padding for spacing within the text block */
+  }
+
+/* === 9. Print styles (from H5BP) === */
+/* (Keep Print Styles CSS as provided in the last cleanup) */
 @media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
+  *, *::before, *::after { background: #fff !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+  a, a:visited { text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; }
+  abbr[title]::after { content: " (" attr(title) ")"; }
+  a[href^="#"]::after, a[href^="javascript:"]::after { content: ""; }
+  pre { white-space: pre-wrap !important; }
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
 }
-
+}
