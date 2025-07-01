@@ -8,7 +8,7 @@ This repository houses the code for Cat Young's developer portfolio, a **demonst
 
 Explore my complete portfolio and project showcases directly:
 
-* <a href="https://catyoung018.github.io/Cat-Young-Dev/" target="_blank" rel="noopener noreferrer">**Visit My Live Portfolio**</a>
+* [**Visit My Live Portfolio**](https://catyoung018.github.io/Cat-Young-Dev/)
 
 This portfolio is deployed and hosted via **GitHub Pages**, demonstrating my ability to ship projects and make them publicly accessible.
 
@@ -16,7 +16,7 @@ This portfolio is deployed and hosted via **GitHub Pages**, demonstrating my abi
 
 ## Skills & Approach
 
-As a dedicated **front end developer**, I specialize in crafting engaging and responsive web experiences. My technical toolkit includes:
+As a dedicated **front-end developer**, I specialize in crafting engaging and responsive web experiences. My technical toolkit includes:
 
 * **Core Languages:** JavaScript, HTML5, CSS3
 * **Web Development Concepts:** Responsive Design, DOM Manipulation, Data Handling, Interactive UI Development
@@ -32,27 +32,27 @@ This portfolio serves as a gateway to a selection of my key projects, each demon
 
 ### Featured Projects:
 
-* <a href="https://github.com/CatYoung018/Super-sticky-notes" target="_blank" rel="noopener noreferrer">**Super Sticky Notes**</a>
+* **[Super Sticky Notes](https://github.com/CatYoung018/Super-sticky-notes)**
     * **Description**: An interactive web application allowing users to create, edit, delete, and search digital sticky notes, with data persistence via local storage.
     * **Skills Demonstrated**: JavaScript, DOM Manipulation, Data Handling, Responsive Design
 
-* <a href="https://catyoung018.github.io/guess-the-word/" target="_blank" rel="noopener noreferrer">**Guess the Word Game**</a>
+* **[Guess the Word Game](https://catyoung018.github.io/guess-the-word/)**
     * **Description**: An interactive JavaScript game where players guess one letter at a time, aiming to guess all letters correctly within eight attempts to win.
     * **Skills Demonstrated**: Vanilla JavaScript, DOM Manipulation, Game Logic, Loops, Responsive Design
 
-* <a href="https://catyoung018.github.io/unplugged-2/" target="_blank" rel="noopener noreferrer">**Unplugged Retreat Website**</a>
+* **[Unplugged Retreat Website](https://catyoung018.github.io/unplugged-2/)**
     * **Description**: A multi-page responsive website coded with Flexbox. This versatile design features several sections, including a Cards design pattern, adaptable for various site purposes.
     * **Skills Demonstrated**: HTML5, CSS3, Flexbox, Media Queries, Responsive Design, Reflexive Typography
 
-* <a href="https://catyoung018.github.io/subscription-calculator/" target="_blank" rel="noopener noreferrer">**Subscription Calculator**</a>
+* **[Subscription Calculator](https://catyoung018.github.io/subscription-calculator/)**
     * **Description**: A front-end application providing users with cost calculations for different subscription types and durations, utilizing various JavaScript functions for interactivity.
     * **Skills Demonstrated**: JavaScript, HTML, CSS, Event Handling (Listeners & Callbacks), Function Expressions
 
-* <a href="https://catyoung018.github.io/Repo-gallery/" target="_blank" rel="noopener noreferrer">**GitHub Repo Gallery**</a>
+* **[GitHub Repo Gallery](https://catyoung018.github.io/Repo-gallery/)**
     * **Description**: Uses GitHub's API to dynamically pull data from my GitHub portfolio, creating a gallery of repositories where visitors can click for more details and direct links.
     * **Skills Demonstrated**: JavaScript, GitHub API Integration, DOM Manipulation, Event Handling, Media Queries, Flexbox
 
-* <a href="https://github.com/CatYoung018/Epic-mix-playlist" target="_blank" rel="noopener noreferrer">**Epic Mix Playlist**</a>
+* **[Epic Mix Playlist](https://github.com/CatYoung018/Epic-mix-playlist)**
     * **Description**: A dynamic front-end web application that randomly selects songs for a playlist, featuring robust filtering, A-Z sorting, and a "favorite" song selection.
     * **Skills Demonstrated**: JavaScript, DOM Manipulation, Data Filtering & Sorting, Event Handling
 
