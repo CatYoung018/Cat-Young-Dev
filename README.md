@@ -1,4 +1,4 @@
-# Cat Young | Developer Portfolio
+# Cat Young's Developer Portfolio :grin:✨
 
 This repository houses the code for Cat Young's developer portfolio, a **demonstration** of practical application of web development skills and a passion for creating user-friendly experiences.
 
