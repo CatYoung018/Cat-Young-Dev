@@ -1,860 +1,510 @@
-/*! HTML5 Boilerplate v9.0.0-RC1 | MIT License | https://html5boilerplate.com/ */
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Alike&family=Open+Sans:wght@400;500;600;700&display=swap');
 
-/* ==========================================================================
-   Base styles: opinionated defaults (from H5BP)
-   ========================================================================== */
-
-   html {
-    color: #222;
-    font-size: 1.25em;
-    line-height: 1.4;
-  }
-  
-  ::-moz-selection {
-    background: var(--selection-background);
-    text-shadow: none;
-  }
-  
-  ::selection {
-    background: var(--selection-background);
-    text-shadow: none;
-  }
-  
-  hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid var(--hr-border-color);
-    margin: 1em 0;
-    padding: 0;
-  }
-  
-  audio,
-  canvas,
-  iframe,
-  img,
-  svg,
-  video {
-    vertical-align: middle;
-  }
-  
-  fieldset {
-    border: 0;
+/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  /* ==========================================================================
-     Author's custom styles
-     ========================================================================== */
-  
-  /* === 1. Variables === */
-  :root {
-    --primary-text-color: #453E4F;
-    --primary-background-color: white;
-    --accent-color-1: #F19494;
-    --accent-color-2: #FFE8D6;
-    --selection-background: #b3d4fc;
-    --hr-border-color: #ccc;
-    --button-hover-background: #CAC4D1;
-    --button-hover-text-color: var(--primary-text-color);
-    --white: #FFFFFF;
-    --about-text-color: #4a4f3e;
-    --back-to-top-background: #e8eff7;
-    --back-to-top-text-color: var(--primary-text-color);
-    --primary-font: 'Open Sans', sans-serif;
-    --secondary-font: 'Alike', serif;
-  }
-  
-  /* === 2. General Styles === */
-  body {
-    font-size: 1em;
-    font-family: var(--primary-font);
-    color: var(--primary-text-color);
-    background-color: var(--primary-background-color);
-  }
-  
-  ul,
-  ol {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  a {
-    color: var(--primary-text-color);
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #453E4F;
+    background-color: #E8EFF7;
+}
+
+/* Skip to Main Content Link (for keyboard accessibility) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #453E4F;
+    color: white;
+    padding: 8px 16px;
     text-decoration: none;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--secondary-font);
-    line-height: 1.5;
-    width: 100%;
-    margin: 0; 
-  }
-  
-  h1 {
-    color: var(--primary-text-color);
-    font-size: 3rem;
-    line-height: 1;
-  }
-  
-  h2 {
-    color: var(--primary-text-color);
-    font-size: 1.3rem;
-    line-height: 1.5;
-    font-weight: 400;
-    margin-top: 60px; 
-  }
-  
-  h3 {
-    font-size: 1.75rem;
-    margin-bottom: 20px; 
-  }
-  
-  h4 {
-    font-size: 1.25rem;
-    margin: 0 0 40px 0; 
-    font-weight: bold; 
-  }
-  
-  h5 {
-    font-size: 1.5rem;
-    margin: 0 0 40px 0;
-  }
-  
-  p,
-  li {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0; 
-  }
-  
-  span {
-    font-weight: bold;
-  }
-  
-  img {
-    width: 100%;
-    vertical-align: middle; 
-  }
-  
-  figure {
-     margin: 20px 0 40px 0; 
-  }
-  
-  figure img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  address {
-    font-style: normal;
-  }
-  
-  /* Specific text styles */
-  .project-link,
-  .language-wrapper p,
-  .tool-wrapper p {
-    text-transform: uppercase;
-    font-size: 1.125rem;
-    color: var(--primary-text-color);
-  }
-  
-  .project-description {
-    margin: 0 0 30px 0; 
-  }
-  
-  
-  /* === 3. Layout / Structural Styles === */
-  header,
-  #work,
-  #skills,
-  #about,
-  footer {
+    border-radius: 0 0 4px 0;
+    z-index: 1000;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid #E9B14C;
+    outline-offset: 2px;
+}
+
+/* Focus Styles - CRITICAL for accessibility */
+*:focus {
+    outline: 3px solid #E9B14C;
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 3px solid #E9B14C;
+    outline-offset: 2px;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(69, 62, 79, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
     display: flex;
     justify-content: center;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #453E4F;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    color: #F19494;
+}
+
+/* Hero Section */
+.hero {
     text-align: center;
-    flex-flow: row wrap;
-  }
-  
-  .content-wrapper {
-    width: 85%;
-  }
-  
-  /* Specific padding for sections */
-  header {
-    padding-top: 30px;
-    padding-bottom: 60px;
-    background-color: var(--accent-color-1); 
-    position: relative; 
-  }
-  
-  nav {
-    margin-bottom: 60px; 
-  }
-  
-  #work {
-    padding-top: 60px; 
-    width: 100%; 
-  }
-  
-  #work .content-wrapper h3.portfolio-header {
-    text-align: center;
-    margin-bottom: 40px; 
-  }
-  
-  #skills {
-    padding-top: 80px; 
-    padding-bottom: 80px; 
-    width: 100%; 
-    background-color: var(--accent-color-1); 
-  }
-  
-  #about {
-    padding-top: 60px;
-    padding-bottom: 60px; 
-    width: 100%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-  }
-  
-  #about .content-wrapper {
-     width: 85%; 
-  }
-  
-  footer {
-    padding: 80px 0; 
-    background-color: var(--accent-color-1); 
-  }
-  
-  
- /* === 4. Section Specific Styles === */
-
-/* --- Projects (#work) --- */
-.portfolio-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 30px;
-  box-sizing: border-box;
-  justify-content: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #FFE8D6 0%, #F19494 100%);
+    color: #453E4F;
 }
 
-.home-portfolio-piece {
-  /* Base width for a two-column layout (2, 2, 1 or 2, 2, 2 pattern) */
-  width: calc(50% - 10px);
-  margin-bottom: 60px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-#work p {
-  width: 90%;
-  text-align: left;
-}
-
-.home-portfolio-piece h4 {
-   font-weight: bold;
-   text-align: center;
-   margin-top: 0;
-   margin-bottom: 0.5em;
-}
-
-
-.home-portfolio-piece > figure {
-  width: 80%;
-  margin-bottom: 1em;
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.home-portfolio-piece > .project-description,
-.home-portfolio-piece > p {
-  text-align: center;
-  margin-top: 0.25em;
-  margin-bottom: 0.5em;
-}
-
-.flex-fill {
-  flex-grow: 1;
-}
-
-.button-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
-}
-
-.project-link {
-  background-color: #453E4F;
-  padding: .75rem 3rem;
-  border-radius: 30px;
-  color: #FFFFFF;
-  display: block;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 0.85em;
-}
-
-.project-link:hover {
-  background-color: var(--button-hover-background);
-  color: var(--button-hover-text-color);
-}
-
-
-/* --- Skills (#skills) --- */
-#skills {
-  background-color: var(--accent-color-1); 
-}
-
-.skills-header {
-  margin-bottom: 20px; 
-}
-
-.language-wrapper,
-.tool-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center; 
-  padding: 0 15px; 
-}
-
-/* Base styles for skill/tool paragraphs - using mobile-first approach */
-/* These styles will apply primarily on smaller screens unless overridden */
-.language-wrapper p,
-.tool-wrapper p {
-  background-color: var(--accent-color-2);
-  padding: 15px; 
-  text-align: center;
-  box-sizing: border-box;
-  width: 100%; 
-  margin: 0; 
-  border-radius: 5px; 
-}
-#skills .language-wrapper + h4 {
-  margin-top: 40px; 
-}
-
-/* Specific override for .tool */
-.tool {
-  width: 100%;
-  margin: 5px 0; /* Added margin for consistency if not set elsewhere */
-}
-
-
-/* --- About (#about) --- */
-#about h3,
-#about h4,
-#about p {
-  color: var(--about-text-color);
-}
-
-#about .about-content-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-#about figure {
-  flex-basis: 60%;
-  flex-grow: 0;
-  flex-shrink: 0;
-  max-width: 60%;
-  margin-right: 30px;
-  margin-bottom: 0;
-}
-
-#profile-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0;
-  overflow: visible;
-}
-
-.about-info {
-  flex-basis: 40%;
-  flex-grow: 1;
-  flex-shrink: 1;
-  max-width: 40%;
-}
-
-.about-info h3 {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.about-info h4 {
+.hero h1 {
+    font-family: 'Alike', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
     font-weight: 400;
 }
 
-.about-text {
-  text-align: justify;
-  margin: 0 0 30px 0;
+.hero-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #453E4F;
 }
 
-#about .about-info p:last-child {
-  text-align: center;
+/* Projects Section */
+.projects {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-
-/* --- Footer (#connect) --- */
-#contact h3 {
-  margin-bottom: 60px;
+.projects h2 {
+    font-family: 'Alike', serif;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #453E4F;
+    font-weight: 400;
 }
 
-.contact-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.contact-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 60%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  margin: 0 0 60px 0;
-  text-align: center;
-}
-
-#connect i {
-  color: var(--light-blue);
-}
-
-#connect a i:hover {
-  color: #d6bdbd; 
-}
-
-#connect .contact-wrapper:nth-child(2) p a {
-  color: #333;
-  background-color: transparent;
-  padding: 5px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-#connect .contact-wrapper:nth-child(2) p a:hover {
-  background-color: #f8c6c6;
-  color: #333;
-  text-decoration: underline;
-}
-
-.contact-title {
-   font-weight: 400;
-   text-align: center;
-   margin: 0 0 40px 0;
-}
-
-.copyright {
-  margin-top: 60px;
-  color: var(--light-blue);
-}
-
-/* === 5. Navigation (Mobile & Desktop) === */
-header nav ul li {
-  font-size: .80rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-header nav ul li a {
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #333;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 30px;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-  display: block;
-}
-
-header nav ul li a:hover {
-  background-color: #f8c6c6;
-  color: #333;
-}
-
-nav #contact-link {
-  background-color: #FFE8D6;
-  padding: 10px 10px;
-  border-radius: 30px;
-}
-
-nav #contact-link a {
-  background-color: #F19494;
-  padding: 10px 10px;
-  border-radius: 30px;
-  color: white;
-}
-
-
-/* Desktop Menu (Default) */
-.desktop-menu {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Mobile Menu (Initially Hidden) */
-.mobile-menu-button {
-  display: none;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.mobile-menu-button span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 5px 0;
-  transition: 0.4s;
-}
-
-.mobile-menu-button.open span:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.mobile-menu-button.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-button.open span:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-.mobile-menu-items {
-  display: none;
-  flex-direction: column;
-  background-color: var(--accent-color-1);
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  padding: 15px;
-  box-sizing: border-box;
-}
-
-.mobile-menu-items.open {
-  display: flex;
-}
-
-.mobile-menu-items li {
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.mobile-menu-items li:last-child {
-  margin-bottom: 0;
-}
-
-.mobile-menu-items li a {
-  display: block;
-  padding: 10px;
-  border-radius: 30px;
-  background-color: #f8c6c6;
-  color: #333;
-}
-
-.mobile-menu-items li a:hover {
-  background-color: #e6a8a8;
-}
-
-
-/* === 6. Back to Top Button === */
-#back-to-top-btn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background-color: var(--back-to-top-background);
-  color: var(--back-to-top-text-color);
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 30px;
-  font-size: 0.9em;
-  opacity: 0.8;
-  transition: opacity 0.3s ease-in-out;
-}
-
-#back-to-top-btn:hover {
-  opacity: 1;
-}
-
-#back-to-top-btn svg {
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  html {
-      scroll-behavior: smooth;
-  }
-}
-
-
-/* === 7. Helper Classes === */
-.hidden, [hidden] { display: none !important; }
-
-.visually-hidden {
-  border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px;
-  overflow: hidden; padding: 0; position: absolute; width: 1px;
-  white-space: nowrap;
-}
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto; height: auto; margin: 0; overflow: visible;
-  position: static; white-space: inherit; width: auto;
-}
-
-.invisible { visibility: hidden; }
-
-.clearfix::before, .clearfix::after { content: ""; display: table; }
-.clearfix::after { clear: both; }
-
-
-/* === 8. Media Queries (Responsive Styles) === */
-
-/* Mobile Breakpoint (768px and below) */
-@media (max-width: 768px) {
-  /* Hide Desktop Menu */
-  .desktop-menu { display: none; }
-
-  /* Show Mobile Menu Button */
-  .mobile-menu-button { display: block; }
-
-  /* Adjust Header Titles */
-  header h1 { font-size: 1.5rem; }
-  header h2 { font-size: 1rem; }
-
-  /* --- Section Layouts on Mobile --- */
-  #work, #skills { width: 100%; }
-  #work h3 { width: 100%; }
-
-  /* Stack Project Items */
-  .home-portfolio-piece {
-    width: 100%;
-  }
-
-  .home-portfolio-piece > figure {
-    width: 100%; /* Allow image to take full width */
-  }
-
-  #skills .language-wrapper,
-  #skills .tool-wrapper {
-     flex-direction: column; 
-     justify-content: center; 
-     padding-left: 15px;
-     padding-right: 15px;
-  }
-
-  #skills .language-wrapper p,
-  #skills .tool-wrapper p {
-    width: 100%;
-    margin: 5px 0; 
-    white-space: nowrap; 
+/* Project Card */
+.project-card {
+    background: white;
+    border-radius: 12px;
     overflow: hidden;
-    text-overflow: ellipsis; 
-  }
-
-
-  /* Stack About Section Content */
-  #about .about-content-wrapper {
-    flex-direction: column; 
-    align-items: center;
-  }
-  
-  #about figure {
-    /* Simplified centering and width control for the image container */
-    width: 80%; 
-    margin: 0 auto 20px auto; 
-    flex-basis: auto; 
-    flex-grow: 0;
-    flex-shrink: 0;
-    max-width: 100%; 
-    padding: 0; 
-    display: block; 
-  }
-
-  #profile-image {
-    width: 100%; 
-    height: auto;
-    display: block; 
-  }
-
-  .about-info {
-    flex-basis: auto; 
-    flex-grow: 1; 
-    flex-shrink: 1;
-    max-width: 100%; 
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  #about .content-wrapper {
-    /* Keep existing padding/width adjustments for the content wrapper */
-    padding-left: 20px;
-    padding-right: 20px;
-    width: auto;
-  }
-  .about-info h3 { margin-top: 20px; }
-  .about-text { margin-bottom: 20px; }
-  #about .content-wrapper {
-    padding-left: 20px; padding-right: 20px; width: auto;
-  }
-
-  /* Adjust Contact Info Layout */
-  #connect .contact-info { justify-content: space-around; padding: 15px 0; }
-  #connect .contact-info a { padding: 10px; }
-
-} /* End of max-width: 768px media query */
-
-
-/* Specific smaller screen adjustments (e.g., phones) */
-@media (max-width: 600px) {
-  .project-link { font-size: 0.9em; }
+    box-shadow: 0 4px 6px rgba(69, 62, 79, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-@media (max-width: 576px) {
-  #about .content-wrapper { width: 95%; padding-left: 15px; padding-right: 15px; }
-  .about-info h3 { font-size: 1.5rem; }
-  p, li { font-size: 0.9rem; }
-  .about-text { margin-bottom: 15px; }
+.project-card:hover,
+.project-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(69, 62, 79, 0.25);
 }
 
-
-/* Larger screen adjustments (769px and up) */
-@media (min-width: 769px) {
-  /* Show Desktop Menu */
-  .desktop-menu { display: flex; justify-content: space-evenly; list-style: none; padding: 0; margin: 0; }
-
-  /* Hide Mobile Menu Button */
-  .mobile-menu-button { display: none; }
-
-  /* Hide Mobile Menu Items */
-  .mobile-menu-items { display: none; }
-
-  .content-wrapper {
-    width: 185%; 
-    max-width: 1100px; 
-    margin: 0 auto; 
-  }
-
-   /* --- Skills/Tools Layout (TWO COLUMNS on Desktop with smaller gap) --- */
-   .language-wrapper,
-   .tool-wrapper {
-     gap: 8px; 
-     justify-content: center; 
-   }
-
-   .language-wrapper p,
-   .tool-wrapper p {
-     width: calc(40% - 4px); 
-     white-space: normal;
-     overflow: visible;
-     text-overflow: clip;
-   }
-
-  .tool {
-     width: calc(50% - 10px); 
-     margin: 5px 0; 
-  }
-
-   /* Adjust Contact Info Layout */
-  #connect .contact-info { justify-content: center; gap: 20px; padding: 20px; }
-  #connect .contact-info a { padding: 10px; border-radius: 50%; }
-
-   /* Adjust About Section Layout */
-   /* --- About Section: Force stacked layout on all screens --- */
-   #about .about-content-wrapper {
-    flex-direction: column; 
-    align-items: center; 
-  }
-
-  #about figure {
-    /* Styles for the image container in the stacked layout */
-    width: 40%; 
-    margin: 0 auto 30px auto; 
-    flex-basis: auto; 
-    flex-grow: 0; 
-    flex-shrink: 0; 
-    max-width: 100%; 
-    padding: 0; 
-    display: block; 
-  }
-
-  #profile-image {
-    width: 100%; 
-    height: auto; 
+.project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    object-position: center;
     display: block;
-  }
-
-  .about-info {
-    /* Styles for the text container in the stacked layout */
-    flex-basis: auto; 
-    flex-grow: 1;
-    flex-shrink: 1; 
-    max-width: 80%; 
-    margin: 0 auto; 
-    padding: 0; 
-    text-align: center; 
-  }
-
-  /* Add padding to the text elements inside the centered info block */
-  .about-info h3,
-  .about-info h4,
-  .about-info p {
-    padding: 0 20px; 
-  }
-
-/* === 9. Print styles (from H5BP) === */
-/* (Keep Print Styles CSS as provided in the last cleanup) */
-@media print {
-  *, *::before, *::after { background: #fff !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
-  a, a:visited { text-decoration: underline; }
-  a[href]::after { content: " (" attr(href) ")"; }
-  abbr[title]::after { content: " (" attr(title) ")"; }
-  a[href^="#"]::after, a[href^="javascript:"]::after { content: ""; }
-  pre { white-space: pre-wrap !important; }
-  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  tr, img { page-break-inside: avoid; }
-  p, h2, h3 { orphans: 3; widows: 3; }
-  h2, h3 { page-break-after: avoid; }
+    background-color: #E8EFF7;
+    padding: 1rem;
 }
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    font-family: 'Alike', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #453E4F;
+    font-weight: 400;
+}
+
+.project-description {
+    margin-bottom: 1rem;
+    color: #453E4F;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.project-tech {
+    font-size: 0.85rem;
+    color: #453E4F;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+/* Project Links */
+.project-links {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #E8EFF7;
+}
+
+.project-button {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    background-color: #FFE8D6;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #453E4F;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.project-button:hover {
+    background-color: #F8C6C6;
+    transform: translateY(-2px);
+}
+
+.project-button:focus {
+    outline: 3px solid #E9B14C;
+    outline-offset: 2px;
+    border-color: #E9B14C;
+}
+
+.project-button:first-child {
+    background-color: #E9B14C;
+}
+
+.project-button:first-child:hover {
+    background-color: #F8D697;
+}
+
+/* Remove old tab styles - no longer needed */
+
+/* Skills Section */
+.skills {
+    padding: 4rem 2rem;
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills h2 {
+    font-family: 'Alike', serif;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #453E4F;
+    font-weight: 400;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-tile {
+    background: linear-gradient(135deg, #FFE8D6 0%, #F8C6C6 100%);
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(69, 62, 79, 0.1);
+    border: 2px solid transparent;
+}
+
+.skill-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(69, 62, 79, 0.2);
+    border-color: #F19494;
+}
+
+.skill-tile h3 {
+    font-family: 'Alike', serif;
+    font-size: 1.1rem;
+    color: #453E4F;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Remove old skills styles */
+
+/* About Section */
+.about {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(69, 62, 79, 0.2);
+}
+
+.about-content h2 {
+    font-family: 'Alike', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #453E4F;
+    font-weight: 400;
+}
+
+.about-subtitle {
+    font-family: 'Alike', serif;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #F19494;
+    font-weight: 400;
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #453E4F;
+}
+
+/* Contact Section */
+.contact {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #F19494 0%, #FFE8D6 100%);
+    color: #453E4F;
+    text-align: center;
+}
+
+.contact h2 {
+    font-family: 'Alike', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.contact-subtitle {
+    font-family: 'Alike', serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.email-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: #453E4F;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(69, 62, 79, 0.3);
+}
+
+.email-button:hover {
+    background-color: #5a5265;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(69, 62, 79, 0.4);
+}
+
+.email-button:focus {
+    outline: 3px solid #E9B14C;
+    outline-offset: 3px;
+}
+
+/* Footer */
+footer {
+    background-color: #453E4F;
+    color: #FFE8D6;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.social-links a {
+    color: #FFE8D6;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.social-links a:hover {
+    color: #F8D697;
+    transform: translateY(-3px);
+}
+
+.social-links a:focus {
+    outline: 3px solid #E9B14C;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.social-links svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .tab-button {
+        border: 2px solid currentColor;
+    }
+    
+    .project-card {
+        border: 2px solid #453E4F;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .about-image {
+        margin: 0 auto;
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .project-button {
+        width: 100%;
+    }
+    
+    .hero {
+        padding: 3rem 1rem;
+    }
+    
+    .projects,
+    .skills,
+    .about {
+        padding: 3rem 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .skip-link,
+    nav,
+    .back-to-top {
+        display: none;
+    }
+    
+    .project-card {
+        page-break-inside: avoid;
+    }
 }
