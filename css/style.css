@@ -427,8 +427,8 @@ footer {
     height: 32px;
 }
 
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
+/* Contrast Mode Support */
+@media (prefers-contrast: more) {
     .tab-button {
         border: 2px solid currentColor;
     }
